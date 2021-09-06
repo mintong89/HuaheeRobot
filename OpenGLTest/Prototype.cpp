@@ -4,7 +4,7 @@
 #include <math.h>
 #include <gl/GLU.h>
 #include "Shape.h"
-#include "Utility.h"
+#include "ColorIntensity.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -132,6 +132,7 @@ bool initPixelFormat(HDC hdc)
 }
 //--------------------------------------------------------------------
 
+ColorIntensity White(1.0, 1.0, 1.0);
 
 void display()
 {
@@ -162,7 +163,7 @@ void display()
 //--------------------------------
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
-	glClearColor(rgbToDec(227), rgbToDec(232), rgbToDec(242), 1.0);
+	glClearColor(White.r, White.g, White.b, White.a);
 
 //--------------------------------
 //	End of OpenGL drawing

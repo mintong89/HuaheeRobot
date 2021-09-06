@@ -6,11 +6,11 @@
 using namespace std;
 
 GLTexture::GLTexture(string fileName) {
-	GLTexture::fileName = fileName;
+	this->fileName = fileName;
 }
 
 void GLTexture::setFileName(string fileName) {
-	GLTexture::fileName = fileName;
+	this->fileName = fileName;
 }
 
 void GLTexture::start() {
