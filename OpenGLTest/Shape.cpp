@@ -152,6 +152,58 @@ void Pyramid(GLfloat back, GLfloat front, GLfloat left, GLfloat right, GLfloat t
 	glPopMatrix();
 }
 
+void Prism(GLfloat back, GLfloat front, GLfloat left, GLfloat middle, GLfloat right, GLfloat top, GLfloat bottom, GLenum mode = GL_POLYGON) {
+	glPushMatrix();
+
+	GLdouble leftTopBack[] = { left, top, back };
+	GLdouble leftBottomBack[] = { left, bottom, back };
+	GLdouble rightBottomBack[] = { right, bottom, back };
+	GLdouble rightTopBack[] = { right, top, back };
+	GLdouble middleBottomFront[] = { middle, bottom, front };
+	GLdouble middleTopFront[] = { middle, top, front };
+
+
+	// Front Face
+	glBegin(mode);
+	glVertex3dv(leftTopBack);
+	glVertex3dv(leftBottomBack);
+	glVertex3dv(rightBottomBack);
+	glVertex3dv(rightTopBack);
+	glEnd();
+
+	// Left Face
+	glBegin(mode);
+	glVertex3dv(leftTopBack);
+	glVertex3dv(leftBottomBack);
+	glVertex3dv(middleBottomFront);
+	glVertex3dv(middleTopFront);
+	glEnd();
+
+	// Right Face
+	glBegin(mode);
+	glVertex3dv(middleTopFront);
+	glVertex3dv(middleBottomFront);
+	glVertex3dv(rightBottomBack);
+	glVertex3dv(rightTopBack);
+	glEnd();
+
+	// Top Face
+	glBegin(mode);
+	glVertex3dv(leftTopBack);
+	glVertex3dv(middleTopFront);
+	glVertex3dv(rightTopBack);
+	glEnd();
+
+	// Bottom Face
+	glBegin(mode);
+	glVertex3dv(leftBottomBack);
+	glVertex3dv(middleBottomFront);
+	glVertex3dv(rightBottomBack);
+	glEnd();
+
+	glPopMatrix();
+}
+
 void Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height, boolean isTexture = false, GLenum mode = GLU_FILL) {
 	GLUquadricObj* cylinder = NULL;
 	cylinder = gluNewQuadric();

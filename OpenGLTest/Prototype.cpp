@@ -5,6 +5,7 @@
 #include <gl/GLU.h>
 #include "Shape.h"
 #include "ColorIntensity.h"
+#include "Forearm.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -164,6 +165,15 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
 	glClearColor(White.r, White.g, White.b, White.a);
+
+	glPushMatrix();
+
+	glRotatef(rotateY, 1.0, 0.0, 0.0);
+	glRotatef(rotateZ, 0.0, 1.0, 0.0);
+	glRotatef(rotateX, 0.0, 0.0, 1.0);
+
+	Forearm();
+	glPopMatrix();
 
 //--------------------------------
 //	End of OpenGL drawing

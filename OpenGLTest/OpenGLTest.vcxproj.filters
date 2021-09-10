@@ -33,6 +33,15 @@
     <ClCompile Include="ColorIntensity.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="Hand.cpp">
+      <Filter>Source Files\Hand</Filter>
+    </ClCompile>
+    <ClCompile Include="Forearm.cpp">
+      <Filter>Source Files\Hand</Filter>
+    </ClCompile>
+    <ClCompile Include="Finger.cpp">
+      <Filter>Source Files\Hand</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLTexture.h">
@@ -43,6 +52,12 @@
     </ClInclude>
     <ClInclude Include="ColorIntensity.h">
       <Filter>Source Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Forearm.h">
+      <Filter>Source Files\Hand</Filter>
+    </ClInclude>
+    <ClInclude Include="Hand.h">
+      <Filter>Source Files\Hand</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
