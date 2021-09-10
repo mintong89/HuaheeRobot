@@ -1,3 +1,7 @@
+#include <Windows.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
+
 #pragma once
 void Cuboid(GLdouble left, GLdouble right, GLdouble top, GLdouble bottom, GLdouble front, GLdouble back, GLenum mode);
 void Pyramid(GLfloat back, GLfloat front, GLfloat left, GLfloat right, GLfloat top, GLenum mode = GL_POLYGON);

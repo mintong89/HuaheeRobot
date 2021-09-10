@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Utilities">
       <UniqueIdentifier>{9dcfee47-a703-4a4b-9863-2f0c6405640d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Hand">
+      <UniqueIdentifier>{d5ae828c-d92e-40f9-8fe4-55569295cee4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prototype.cpp">

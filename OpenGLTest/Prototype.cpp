@@ -132,7 +132,7 @@ bool initPixelFormat(HDC hdc)
 }
 //--------------------------------------------------------------------
 
-ColorIntensity White(1.0, 1.0, 1.0);
+ColorIntensity White(190, 76, 100);
 
 void display()
 {
