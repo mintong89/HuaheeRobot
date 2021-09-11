@@ -20,7 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ColorIntensity.cpp" />
-    <ClCompile Include="Finger.cpp" />
+    <ClCompile Include="ColorList.cpp" />
+    <ClCompile Include="Fingers.cpp" />
     <ClCompile Include="Forearm.cpp" />
     <ClCompile Include="GLTexture.cpp" />
     <ClCompile Include="Hand.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="Shape.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Fingers.h" />
     <ClInclude Include="Forearm.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="ColorIntensity.h" />
