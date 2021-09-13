@@ -6,6 +6,8 @@
 #include "Shape.h"
 #include "ColorIntensity.h"
 #include "Forearm.h"
+#include "Head.h"
+#include "UpBody.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -133,7 +135,6 @@ bool initPixelFormat(HDC hdc)
 }
 //--------------------------------------------------------------------
 
-ColorIntensity White(190, 76, 100);
 
 void display()
 {
@@ -162,9 +163,11 @@ void display()
 //--------------------------------
 //	OpenGL drawing
 //--------------------------------
+	ColorIntensity background(190, 76, 100);
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
-	glClearColor(White.r, White.g, White.b, White.a);
+	glClearColor(background.r, background.g, background.b, background.a);
 
 	glPushMatrix();
 
@@ -172,7 +175,9 @@ void display()
 	glRotatef(rotateZ, 0.0, 1.0, 0.0);
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 
-	Forearm();
+	/*Head();*/
+	upbody();
+	/*Forearm();*/
 	glPopMatrix();
 
 //--------------------------------

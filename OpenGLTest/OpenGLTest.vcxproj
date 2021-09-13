@@ -25,10 +25,12 @@
     <ClCompile Include="Forearm.cpp" />
     <ClCompile Include="GLTexture.cpp" />
     <ClCompile Include="Hand.cpp" />
+    <ClCompile Include="Head.cpp" />
     <ClCompile Include="Prototype.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="UpBodycpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fingers.h" />
@@ -36,7 +38,9 @@
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="ColorIntensity.h" />
     <ClInclude Include="Hand.h" />
+    <ClInclude Include="Head.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="UpBody.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

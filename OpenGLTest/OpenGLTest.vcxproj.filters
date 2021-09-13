@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Hand">
       <UniqueIdentifier>{d5ae828c-d92e-40f9-8fe4-55569295cee4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Head">
+      <UniqueIdentifier>{292743f9-211b-461c-b4a4-863c95d2a3fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Body">
+      <UniqueIdentifier>{82c95b98-9749-4847-ba1a-1dc5bd04aa9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prototype.cpp">
@@ -45,6 +51,12 @@
     <ClCompile Include="ColorList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Head.cpp">
+      <Filter>Source Files\Head</Filter>
+    </ClCompile>
+    <ClCompile Include="UpBodycpp.cpp">
+      <Filter>Source Files\Body</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLTexture.h">
@@ -64,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="Fingers.h">
       <Filter>Source Files\Hand</Filter>
+    </ClInclude>
+    <ClInclude Include="Head.h">
+      <Filter>Source Files\Head</Filter>
+    </ClInclude>
+    <ClInclude Include="UpBody.h">
+      <Filter>Source Files\Body</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
