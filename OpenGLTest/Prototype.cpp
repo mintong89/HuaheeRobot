@@ -176,9 +176,9 @@ void display()
 	glRotatef(rotateZ, 0.0, 1.0, 0.0);
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 
-	/*Head();*/
+	Head();
 	/*upbody();*/
-	Shield();
+	/*Shield();*/
 	/*Forearm();*/
 	glPopMatrix();
 

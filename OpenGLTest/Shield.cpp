@@ -351,8 +351,4 @@ void Shield() {
 	UpShieldGreen.call();
 	Cuboid(DHC[0], DHC[1], DHC[2], DHC[3], DHC[4], DHC[5], GL_LINE_LOOP);
 	glPopMatrix();
-
-
-
-
 }
