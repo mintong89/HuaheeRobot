@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ArmWheel.cpp" />
     <ClCompile Include="ColorIntensity.cpp" />
     <ClCompile Include="ColorList.cpp" />
     <ClCompile Include="Fingers.cpp" />
@@ -34,6 +35,7 @@
     <ClCompile Include="UpBodycpp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArmWheel.h" />
     <ClInclude Include="Fingers.h" />
     <ClInclude Include="Forearm.h" />
     <ClInclude Include="GLTexture.h" />

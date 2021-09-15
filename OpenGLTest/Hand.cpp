@@ -22,7 +22,8 @@ void Hand() {
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(3.0, -19, -10.0);
+	glTranslatef(-4, -19, -9.0);
+	glRotatef(50, 0.0, 1.0, 0.0);
 	glRotatef(-50, 0.0, 0.0, 1.0);
 	Fingers();
 	glPopMatrix();

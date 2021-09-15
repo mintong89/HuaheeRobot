@@ -256,7 +256,9 @@ void Circle(GLfloat cx, GLfloat cy, GLfloat r, GLenum mode = GL_TRIANGLE_FAN) {
 	float num_segments = 360;
 
 	glBegin(mode);
-	glVertex2f(cx, cy);
+	if (!(mode == GL_LINE_STRIP || mode == GL_LINE_LOOP)) {
+		glVertex2f(cx, cy);
+	}
 	for (int ii = 0; ii <= num_segments; ii++) {
 		float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);
 		float x = r * cosf(theta);

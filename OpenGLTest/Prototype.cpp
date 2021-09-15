@@ -136,6 +136,7 @@ bool initPixelFormat(HDC hdc)
 }
 //--------------------------------------------------------------------
 
+ColorIntensity Background(190, 76, 100);
 
 void display()
 {
@@ -144,8 +145,8 @@ void display()
 	if (!persepective) {
 		glOrtho(-cameraInit - translateX,
 			cameraInit - translateX,
-			-cameraInit - 0.5f - translateY,
-			cameraInit - 0.5f - translateY,
+			-cameraInit - translateY,
+			cameraInit - translateY,
 			-cameraInit - 10.0f - translateZ,
 			cameraInit + 10.0f - translateZ);
 	}
@@ -168,13 +169,14 @@ void display()
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
-	glClearColor(background.r, background.g, background.b, background.a);
+	glClearColor(Background.r, Background.g, Background.b, Background.a);
 
 	glPushMatrix();
 
 	glRotatef(rotateY, 1.0, 0.0, 0.0);
 	glRotatef(rotateZ, 0.0, 1.0, 0.0);
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
+	glLineWidth(1.5);
 
 	Head();
 	/*upbody();*/
