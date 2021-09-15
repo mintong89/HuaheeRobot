@@ -15,13 +15,18 @@
 
 #define WINDOW_TITLE "OpenGL Window"
 
+ColorIntensity Background(190, 76, 100);
+
 GLfloat rotateX = 0.0, rotateY = 0.0, rotateZ = 0.0;
 GLfloat translateX = 0.0, translateY = 0.0, translateZ = 0.0;
 GLfloat rotateSpeed = 5.0, translateSpeed = 0.2;
 GLfloat cameraInit = 15.0;
 
-boolean isBridgeOpen = false, persepective = false;
-GLfloat bridgeAngle = 0;
+GLfloat lightX = 1, lightY = 1, lightZ = 1;
+GLfloat amb[] = { 1, 0, 1, 0 };
+GLfloat pos[] = { lightX, lightY, lightZ };
+GLfloat diff[] = { 1, 0, 0, 0 };
+boolean persepective = false;
 
 LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -33,51 +38,34 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 
 		case WM_KEYDOWN:
 			switch (wParam) {
-				case VK_ESCAPE:
-					PostQuitMessage(0);
-					break;
+				case VK_ESCAPE: PostQuitMessage(0); break;
 
-				case 'A':
-					rotateX -= rotateSpeed;
-					break;
-				case 'D':
-					rotateX += rotateSpeed;
-					break;
+				case 'A': rotateX -= rotateSpeed; break;
+				case 'D': rotateX += rotateSpeed; break;
 
-				case 'S':
-					rotateY -= rotateSpeed;
-					break;
-				case 'W':
-					rotateY += rotateSpeed;
-					break;
+				case 'S': rotateY -= rotateSpeed; break;
+				case 'W': rotateY += rotateSpeed; break;
 
-				case 'Q':
-					rotateZ -= rotateSpeed;
-					break;
-				case 'E':
-					rotateZ += rotateSpeed;
-					break;
+				case 'Q': rotateZ -= rotateSpeed; break;
+				case 'E': rotateZ += rotateSpeed; break;
 
-				case VK_LEFT:
-					translateX -= translateSpeed;
-					break;
-				case VK_RIGHT:
-					translateX += translateSpeed;
-					break;
+				case VK_LEFT: translateX -= translateSpeed; break;
+				case VK_RIGHT: translateX += translateSpeed; break;
 
-				case VK_DOWN:
-					translateY -= translateSpeed;
-					break;
-				case VK_UP:
-					translateY += translateSpeed;
-					break;
+				case VK_DOWN: translateY -= translateSpeed; break;
+				case VK_UP: translateY += translateSpeed; break;
 
-				case 'Z':
-					translateZ -= translateSpeed;
-					break;
-				case 'C':
-					translateZ += translateSpeed;
-					break;
+				case 'Z': translateZ -= translateSpeed; break;
+				case 'C': translateZ += translateSpeed; break;
+
+				case 'J': lightX -= 1; break;
+				case 'L': lightX += 1; break;
+
+				case 'K': lightY -= 1; break;
+				case 'I': lightY += 1; break;
+
+				case 'U': lightZ -= 1; break;
+				case 'O': lightZ += 1; break;
 
 				case VK_SPACE:
 					rotateX = 0.0;
@@ -88,11 +76,7 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 					translateZ = 0.0;
 					break;
 
-				case 'O':
-					isBridgeOpen = !isBridgeOpen;
-					break;
-
-				case 'P':
+				case 'M':
 					persepective = !persepective;
 			}
 			break;
@@ -136,8 +120,6 @@ bool initPixelFormat(HDC hdc)
 }
 //--------------------------------------------------------------------
 
-ColorIntensity Background(190, 76, 100);
-
 void display()
 {
 	glMatrixMode(GL_PROJECTION);
@@ -158,17 +140,23 @@ void display()
 			5 - translateZ,
 			100 - translateZ);
 	}
-
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
 	glEnable(GL_DEPTH_TEST);
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//pos[0] = lightX;
+	//pos[1] = lightY;
+	//pos[2] = lightZ;
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, amb);
+	//glLightfv(GL_LIGHT0, GL_POSITION, pos);
+	//glLightfv(GL_LIGHT0, GL_DIFFUSE, diff);
+	//glEnable(GL_LIGHT0);
+	//glEnable(GL_LIGHTING);
+
+	glLoadIdentity();
 //--------------------------------
 //	OpenGL drawing
 //--------------------------------
-	ColorIntensity background(190, 76, 100);
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glEnable(GL_DEPTH_TEST);
 	glClearColor(Background.r, Background.g, Background.b, Background.a);
 
 	glPushMatrix();
@@ -178,10 +166,15 @@ void display()
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 	glLineWidth(1.5);
 
-	Head();
+	glPointSize(10.0f);
+	glBegin(GL_POINTS);
+	glVertex3f(lightX, lightY, lightZ);
+	glEnd();
+
+	//Head();
 	/*upbody();*/
 	/*Shield();*/
-	/*Forearm();*/
+	Forearm();
 	glPopMatrix();
 
 //--------------------------------

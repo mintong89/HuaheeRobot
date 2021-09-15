@@ -18,12 +18,16 @@ void Cuboid(GLdouble left, GLdouble right, GLdouble top, GLdouble bottom, GLdoub
 	// Front Face
 	glBegin(mode);
 	glTexCoord2f(1.0f, 0.0f);
+	glNormal3dv(leftTopFront);
 	glVertex3dv(leftTopFront);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(leftBottomFront);
 	glVertex3dv(leftBottomFront);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(rightBottomFront);
 	glVertex3dv(rightBottomFront);
 	glTexCoord2f(1.0f, 1.0f);
+	glNormal3dv(rightTopFront);
 	glVertex3dv(rightTopFront);
 	glEnd();
 

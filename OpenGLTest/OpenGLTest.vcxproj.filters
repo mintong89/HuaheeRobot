@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Shield">
       <UniqueIdentifier>{634123da-9088-46c9-a42b-310c56745128}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Leg">
+      <UniqueIdentifier>{ec86f911-b1b2-455b-a193-9b3b7f8c86c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prototype.cpp">
@@ -62,9 +65,15 @@
     </ClCompile>
     <ClCompile Include="Shield.cpp">
       <Filter>Source Files\Shield</Filter>
-	  </ClCompile>
+    </ClCompile>
     <ClCompile Include="ArmWheel.cpp">
       <Filter>Source Files\Hand</Filter>
+    </ClCompile>
+    <ClCompile Include="Foot.cpp">
+      <Filter>Source Files\Leg</Filter>
+    </ClCompile>
+    <ClCompile Include="Leg.cpp">
+      <Filter>Source Files\Leg</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,9 +103,15 @@
     </ClInclude>
     <ClInclude Include="Shield.h">
       <Filter>Source Files\Shield</Filter>
-	  </ClInclude>
+    </ClInclude>
     <ClInclude Include="ArmWheel.h">
       <Filter>Source Files\Hand</Filter>
+    </ClInclude>
+    <ClInclude Include="Foot.h">
+      <Filter>Source Files\Leg</Filter>
+    </ClInclude>
+    <ClInclude Include="Leg.h">
+      <Filter>Source Files\Leg</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

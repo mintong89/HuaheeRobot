@@ -23,10 +23,12 @@
     <ClCompile Include="ColorIntensity.cpp" />
     <ClCompile Include="ColorList.cpp" />
     <ClCompile Include="Fingers.cpp" />
+    <ClCompile Include="Foot.cpp" />
     <ClCompile Include="Forearm.cpp" />
     <ClCompile Include="GLTexture.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Head.cpp" />
+    <ClCompile Include="Leg.cpp" />
     <ClCompile Include="Prototype.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -37,11 +39,13 @@
   <ItemGroup>
     <ClInclude Include="ArmWheel.h" />
     <ClInclude Include="Fingers.h" />
+    <ClInclude Include="Foot.h" />
     <ClInclude Include="Forearm.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="ColorIntensity.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Head.h" />
+    <ClInclude Include="Leg.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="UpBody.h" />
