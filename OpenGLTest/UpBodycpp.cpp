@@ -291,6 +291,4 @@ void upbody() {
 	glVertex3f(-2.5, 2.5, 3.2);
 	glEnd();
 	glPopMatrix();
-	
-
 }

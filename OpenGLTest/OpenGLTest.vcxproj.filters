@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Leg">
       <UniqueIdentifier>{ec86f911-b1b2-455b-a193-9b3b7f8c86c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DownBody">
+      <UniqueIdentifier>{f769265f-6833-48c0-a6cb-632feebfc50f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prototype.cpp">
@@ -75,6 +78,9 @@
     <ClCompile Include="Leg.cpp">
       <Filter>Source Files\Leg</Filter>
     </ClCompile>
+    <ClCompile Include="DownBody.cpp">
+      <Filter>Source Files\DownBody</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLTexture.h">
@@ -112,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="Leg.h">
       <Filter>Source Files\Leg</Filter>
+    </ClInclude>
+    <ClInclude Include="DownBody.h">
+      <Filter>Source Files\DownBody</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
