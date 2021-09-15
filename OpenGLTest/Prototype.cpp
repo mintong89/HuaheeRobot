@@ -9,6 +9,7 @@
 #include "Head.h"
 #include "UpBody.h"
 #include "Shield.h"
+#include "DownBody.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -178,8 +179,9 @@ void display()
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 	glLineWidth(1.5);
 
-	Head();
-	/*upbody();*/
+	/*Head();*/
+	upbody();
+	//DownBody();
 	/*Shield();*/
 	/*Forearm();*/
 	glPopMatrix();

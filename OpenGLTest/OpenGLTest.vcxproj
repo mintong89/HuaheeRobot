@@ -22,6 +22,7 @@
     <ClCompile Include="ArmWheel.cpp" />
     <ClCompile Include="ColorIntensity.cpp" />
     <ClCompile Include="ColorList.cpp" />
+    <ClCompile Include="DownBody.cpp" />
     <ClCompile Include="Fingers.cpp" />
     <ClCompile Include="Forearm.cpp" />
     <ClCompile Include="GLTexture.cpp" />
@@ -36,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArmWheel.h" />
+    <ClInclude Include="DownBody.h" />
     <ClInclude Include="Fingers.h" />
     <ClInclude Include="Forearm.h" />
     <ClInclude Include="GLTexture.h" />

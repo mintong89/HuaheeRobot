@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Shield">
       <UniqueIdentifier>{634123da-9088-46c9-a42b-310c56745128}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\DownBody">
+      <UniqueIdentifier>{f769265f-6833-48c0-a6cb-632feebfc50f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prototype.cpp">
@@ -66,6 +69,9 @@
     <ClCompile Include="ArmWheel.cpp">
       <Filter>Source Files\Hand</Filter>
     </ClCompile>
+    <ClCompile Include="DownBody.cpp">
+      <Filter>Source Files\DownBody</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLTexture.h">
@@ -97,6 +103,9 @@
 	  </ClInclude>
     <ClInclude Include="ArmWheel.h">
       <Filter>Source Files\Hand</Filter>
+    </ClInclude>
+    <ClInclude Include="DownBody.h">
+      <Filter>Source Files\DownBody</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
