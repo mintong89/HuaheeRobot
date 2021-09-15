@@ -62,6 +62,7 @@
     </ClCompile>
     <ClCompile Include="Shield.cpp">
       <Filter>Source Files\Shield</Filter>
+	  </ClCompile>
     <ClCompile Include="ArmWheel.cpp">
       <Filter>Source Files\Hand</Filter>
     </ClCompile>
@@ -93,6 +94,7 @@
     </ClInclude>
     <ClInclude Include="Shield.h">
       <Filter>Source Files\Shield</Filter>
+	  </ClInclude>
     <ClInclude Include="ArmWheel.h">
       <Filter>Source Files\Hand</Filter>
     </ClInclude>
