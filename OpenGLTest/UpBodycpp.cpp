@@ -1,7 +1,7 @@
 #include "Shape.h"
 #include "ColorIntensity.h"
 
-void upbody() {
+void UpBody() {
 	ColorIntensity Black(0, 0, 0);
 	ColorIntensity Gold(255, 161, 10);
 	ColorIntensity DarkGreen(16, 176, 63);

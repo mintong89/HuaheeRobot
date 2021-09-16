@@ -25,16 +25,17 @@ void Foot() {
 	GLdouble
 		leftTopBack[] = { -2.5, 3.0, -2.5 },
 		rightTopBack[] = { 2.5, 3.0, -2.5 },
-		rightBottomBack[] = { 2.5, 0.0, -2.5 },
-		leftBottomBack[] = { -2.5, 0.0, -2.5 },
+		rightBottomBack[] = { 2.5, -1.0, -2.5 },
+		leftBottomBack[] = { -2.5, -1.0, -2.5 },
 		middleMiddleMiddle[] = { 1.0, 2.0, 3.0 },
-		middleBottomFront[] = { 1.0, 0.0, 5.5 };
+		middleBottomFront[] = { 1.0, -1.0, 7.5 };
 
 	glPushMatrix();
 	glRotatef(-35, 0.0, 1.0, 0.0);
 
 	// Bottom
 	glPushMatrix();
+	glTranslatef(1.0, 0.0, 1.5);
 	Turquoise.call();
 	FootShape(leftTopBack, rightTopBack, rightBottomBack, leftBottomBack, middleMiddleMiddle, middleBottomFront, GL_POLYGON);
 	Black.call();
@@ -42,11 +43,14 @@ void Foot() {
 	glPopMatrix();
 
 	// Middle
+	glPushMatrix();
 	GLdouble pyramidTop[] = { 1.0, 8.0, -1.0 };
+	glTranslatef(1.0, 0.0, 1.5);
 	DarkGreen.call();
 	PyramidThree(leftTopBack, rightTopBack, middleMiddleMiddle, pyramidTop, GL_POLYGON);
 	Black.call();
 	PyramidThree(leftTopBack, rightTopBack, middleMiddleMiddle, pyramidTop, GL_LINE_LOOP);
+	glPopMatrix();
 
 	glPopMatrix();
 

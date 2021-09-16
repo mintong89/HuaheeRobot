@@ -9,6 +9,8 @@
 #include "Head.h"
 #include "UpBody.h"
 #include "Shield.h"
+#include "DownBody.h"
+#include "Leg.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -88,6 +90,10 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 }
 //--------------------------------------------------------------------
 
+void glScaleA(GLfloat ratio) {
+	glScalef(ratio, ratio, ratio);
+}
+
 bool initPixelFormat(HDC hdc)
 {
 	PIXELFORMATDESCRIPTOR pfd;
@@ -133,12 +139,13 @@ void display()
 			cameraInit + 10.0f - translateZ);
 	}
 	else {
-		glFrustum(-cameraInit - translateX,
-			cameraInit - translateX,
-			-cameraInit - translateY,
-			cameraInit - translateY,
-			5 - translateZ,
-			100 - translateZ);
+		glFrustum(-1 - translateX,
+			1 - translateX,
+			-1 - translateY,
+			1 - translateY,
+			1 - translateZ,
+			40 - translateZ);
+		glTranslatef(0, 0, -20);
 	}
 	glMatrixMode(GL_MODELVIEW);
 	glEnable(GL_DEPTH_TEST);
@@ -158,6 +165,7 @@ void display()
 //	OpenGL drawing
 //--------------------------------
 	glClearColor(Background.r, Background.g, Background.b, Background.a);
+	glScaled(0.75, 0.75, 0.75);
 
 	glPushMatrix();
 
@@ -166,15 +174,57 @@ void display()
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 	glLineWidth(1.5);
 
-	glPointSize(10.0f);
-	glBegin(GL_POINTS);
-	glVertex3f(lightX, lightY, lightZ);
-	glEnd();
+	//glPointSize(10.0f);
+	//glBegin(GL_POINTS);
+	//glVertex3f(lightX, lightY, lightZ);
+	//glEnd();
 
-	//Head();
-	/*upbody();*/
-	/*Shield();*/
+	// Head
+	glPushMatrix();
+	glTranslatef(0.0, 10.0, -2.0);
+	glScaleA(0.75);
+	Head();
+	glPopMatrix();
+
+	// Upper body
+	UpBody();
+
+	// Bottom body
+	DownBody();
+
+	// Left Hand
+	glPushMatrix();
+	glTranslatef(-8.0, -9.0, 0.0);
+	glRotatef(-180, 0.0, 1.0, 0.0);
+	glScaleA(0.6);
 	Forearm();
+	glPopMatrix();
+
+	// Right Hand
+	glPushMatrix();
+	glTranslatef(8.0, -9.0, 0.0);
+	glScaleA(0.6);
+	Forearm();
+	glPopMatrix();
+
+	// Left leg
+	glPushMatrix();
+	glTranslatef(-5.0, -15.0, 0.0);
+	glRotatef(30, 0.0, 1.0, 0.0);
+	glScaleA(0.75);
+	Leg();
+	glPopMatrix();
+
+	// Left leg
+	glPushMatrix();
+	glTranslatef(5.0, -15.0, 0.0);
+	glRotatef(-30, 0.0, 1.0, 0.0);
+	glScalef(-1, 1, 1);
+	glScaleA(0.75);
+	Leg();
+	glPopMatrix();
+
+	/*Shield();*/
 	glPopMatrix();
 
 //--------------------------------
