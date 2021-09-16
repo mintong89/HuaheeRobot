@@ -24,10 +24,12 @@ GLfloat translateX = 0.0, translateY = 0.0, translateZ = 0.0;
 GLfloat rotateSpeed = 5.0, translateSpeed = 0.2;
 GLfloat cameraInit = 15.0;
 
-GLfloat lightX = 1, lightY = 1, lightZ = 1;
-GLfloat amb[] = { 1, 0, 1, 0 };
-GLfloat pos[] = { lightX, lightY, lightZ };
-GLfloat diff[] = { 1, 0, 0, 0 };
+GLfloat lightPosX = 1, lightPosY = 1, lightPosZ = 1;
+GLfloat amb[] = { 0.5, 0.5, 0.5, 1 };
+GLfloat diff[] = { 0.25, 0.25, 0.25, 1 };
+GLfloat spe[] = { 1, 1, 1, 1 };
+GLfloat pos[] = { lightPosX, lightPosY, lightPosZ, 0.5 };
+boolean lightOn = true;
 boolean persepective = false;
 
 LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -60,14 +62,14 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 				case 'Z': translateZ -= translateSpeed; break;
 				case 'C': translateZ += translateSpeed; break;
 
-				case 'J': lightX -= 1; break;
-				case 'L': lightX += 1; break;
+				case 'J': lightPosX -= 1; break;
+				case 'L': lightPosX += 1; break;
 
-				case 'K': lightY -= 1; break;
-				case 'I': lightY += 1; break;
+				case 'K': lightPosY -= 1; break;
+				case 'I': lightPosY += 1; break;
 
-				case 'U': lightZ -= 1; break;
-				case 'O': lightZ += 1; break;
+				case 'U': lightPosZ -= 1; break;
+				case 'O': lightPosZ += 1; break;
 
 				case VK_SPACE:
 					rotateX = 0.0;
@@ -79,7 +81,32 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 					break;
 
 				case 'M':
-					persepective = !persepective;
+					persepective = !persepective; break;
+
+				case 'B':
+					if (lightOn) {
+						amb[0] = 1;
+						amb[1] = 1;
+						amb[2] = 1;
+						amb[3] = 1;
+
+						diff[0] = 0;
+						diff[1] = 0;
+						diff[2] = 0;
+						diff[3] = 0;
+					}
+					else {
+						amb[0] = 0.5;
+						amb[1] = 0.5;
+						amb[2] = 0.5;
+						amb[3] = 1;
+
+						diff[0] = 0.25;
+						diff[1] = 0.25;
+						diff[2] = 0.25;
+						diff[3] = 1;
+					}
+					lightOn = !lightOn; break;
 			}
 			break;
 
@@ -151,14 +178,16 @@ void display()
 	glEnable(GL_DEPTH_TEST);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//pos[0] = lightX;
-	//pos[1] = lightY;
-	//pos[2] = lightZ;
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, amb);
-	//glLightfv(GL_LIGHT0, GL_POSITION, pos);
-	//glLightfv(GL_LIGHT0, GL_DIFFUSE, diff);
-	//glEnable(GL_LIGHT0);
-	//glEnable(GL_LIGHTING);
+	pos[0] = lightPosX;
+	pos[1] = lightPosY;
+	pos[2] = lightPosZ;
+	glLightfv(GL_LIGHT1, GL_AMBIENT, amb);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, diff);
+	glLightfv(GL_LIGHT1, GL_SPECULAR, spe);
+	glLightfv(GL_LIGHT1, GL_POSITION, pos);
+	glEnable(GL_LIGHT1);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_COLOR_MATERIAL);
 
 	glLoadIdentity();
 //--------------------------------
@@ -174,10 +203,10 @@ void display()
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 	glLineWidth(1.5);
 
-	//glPointSize(10.0f);
-	//glBegin(GL_POINTS);
-	//glVertex3f(lightX, lightY, lightZ);
-	//glEnd();
+	glPointSize(10.0f);
+	glBegin(GL_POINTS);
+	glVertex3f(lightPosX, lightPosY, lightPosZ);
+	glEnd();
 
 	//// Head
 	//glPushMatrix();

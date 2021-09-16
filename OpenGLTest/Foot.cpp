@@ -85,6 +85,10 @@ void FootShape(
 ) {
 	// Top Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
+	glNormal3dv(rightTopBack);
+	glNormal3dv(middleMiddleMiddle);
+
 	glVertex3dv(leftTopBack);
 	glVertex3dv(rightTopBack);
 	glVertex3dv(middleMiddleMiddle);
@@ -92,6 +96,11 @@ void FootShape(
 
 	// Back Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
+	glNormal3dv(leftBottomBack);
+	glNormal3dv(rightBottomBack);
+	glNormal3dv(rightTopBack);
+
 	glVertex3dv(leftTopBack);
 	glVertex3dv(leftBottomBack);
 	glVertex3dv(rightBottomBack);
@@ -100,6 +109,11 @@ void FootShape(
 
 	// Left Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
+	glNormal3dv(leftBottomBack);
+	glNormal3dv(middleBottomFront);
+	glNormal3dv(middleMiddleMiddle);
+
 	glVertex3dv(leftTopBack);
 	glVertex3dv(leftBottomBack);
 	glVertex3dv(middleBottomFront);
@@ -108,6 +122,11 @@ void FootShape(
 
 	// Right Face
 	glBegin(mode);
+	glNormal3dv(rightTopBack);
+	glNormal3dv(rightBottomBack);
+	glNormal3dv(middleBottomFront);
+	glNormal3dv(middleMiddleMiddle);
+
 	glVertex3dv(rightTopBack);
 	glVertex3dv(rightBottomBack);
 	glVertex3dv(middleBottomFront);
@@ -116,6 +135,10 @@ void FootShape(
 
 	// Bottom Face
 	glBegin(mode);
+	glNormal3dv(leftBottomBack);
+	glNormal3dv(rightBottomBack);
+	glNormal3dv(middleBottomFront);
+
 	glVertex3dv(leftBottomBack);
 	glVertex3dv(rightBottomBack);
 	glVertex3dv(middleBottomFront);
@@ -132,6 +155,10 @@ void PyramidThree(
 	glPushMatrix();
 	// Bottom Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
+	glNormal3dv(middleMiddleMiddle);
+	glNormal3dv(pyramidTop);
+
 	glVertex3dv(leftTopBack);
 	glVertex3dv(middleMiddleMiddle);
 	glVertex3dv(pyramidTop);
@@ -139,6 +166,10 @@ void PyramidThree(
 
 	// Left Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
+	glNormal3dv(middleMiddleMiddle);
+	glNormal3dv(pyramidTop);
+
 	glVertex3dv(leftTopBack);
 	glVertex3dv(middleMiddleMiddle);
 	glVertex3dv(pyramidTop);
@@ -146,6 +177,10 @@ void PyramidThree(
 
 	// Right Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
+	glNormal3dv(rightTopBack);
+	glNormal3dv(pyramidTop);
+
 	glVertex3dv(leftTopBack);
 	glVertex3dv(rightTopBack);
 	glVertex3dv(pyramidTop);
@@ -153,6 +188,10 @@ void PyramidThree(
 
 	// Front Face
 	glBegin(mode);
+	glNormal3dv(pyramidTop);
+	glNormal3dv(rightTopBack);
+	glNormal3dv(middleMiddleMiddle);
+
 	glVertex3dv(pyramidTop);
 	glVertex3dv(rightTopBack);
 	glVertex3dv(middleMiddleMiddle);

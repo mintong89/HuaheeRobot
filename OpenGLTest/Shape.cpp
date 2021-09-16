@@ -34,60 +34,80 @@ void Cuboid(GLdouble left, GLdouble right, GLdouble top, GLdouble bottom, GLdoub
 	// Back Face
 	glBegin(mode);
 	glTexCoord2f(1.0f, 0.0f);
+	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
 	glTexCoord2f(1.0f, 1.0f);
+	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glEnd();
 
 	// Left Face
 	glBegin(mode);
 	glTexCoord2f(1.0f, 1.0f);
+	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(leftBottomFront);
 	glVertex3dv(leftBottomFront);
 	glTexCoord2f(1.0f, 0.0f);
+	glNormal3dv(leftTopFront);
 	glVertex3dv(leftTopFront);
 	glEnd();
 
 	// Right Face
 	glBegin(mode);
 	glTexCoord2f(1.0f, 1.0f);
+	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(rightBottomFront);
 	glVertex3dv(rightBottomFront);
 	glTexCoord2f(1.0f, 0.0f);
+	glNormal3dv(rightTopFront);
 	glVertex3dv(rightTopFront);
 	glEnd();
 
 	// Top Face
 	glBegin(mode);
 	glTexCoord2f(1.0f, 0.0f);
+	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(leftTopFront);
 	glVertex3dv(leftTopFront);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(rightTopFront);
 	glVertex3dv(rightTopFront);
 	glTexCoord2f(1.0f, 1.0f);
+	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glEnd();
 
 	// Bottom Face
 	glBegin(mode);
 	glTexCoord2f(1.0f, 0.0f);
+	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(leftBottomFront);
 	glVertex3dv(leftBottomFront);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(rightBottomFront);
 	glVertex3dv(rightBottomFront);
 	glTexCoord2f(1.0f, 1.0f);
+	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
 	glEnd();
 }
@@ -104,52 +124,68 @@ void Pyramid(GLfloat back, GLfloat front, GLfloat left, GLfloat right, GLfloat t
 	// Front Triangle
 	glBegin(mode);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(backLeft);
 	glVertex3dv(backLeft);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(backRight);
 	glVertex3dv(backRight);
 	glTexCoord2f(1.0f, 0.5f);
+	glNormal3dv(topPoint);
 	glVertex3dv(topPoint);
 	glEnd();
 
 	// Left Triangle
 	glBegin(mode);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(backLeft);
 	glVertex3dv(backLeft);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(frontLeft);
 	glVertex3dv(frontLeft);
 	glTexCoord2f(1.0f, 0.5f);
+	glNormal3dv(topPoint);
 	glVertex3dv(topPoint);
 	glEnd();
 
 	// Back Triangle
 	glBegin(mode);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(frontLeft);
 	glVertex3dv(frontLeft);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(frontRight);
 	glVertex3dv(frontRight);
 	glTexCoord2f(1.0f, 0.5f);
+	glNormal3dv(topPoint);
 	glVertex3dv(topPoint);
 	glEnd();
 
 	// Right Triangle
 	glBegin(mode);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(backRight);
 	glVertex3dv(backRight);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(frontRight);
 	glVertex3dv(frontRight);
 	glTexCoord2f(1.0f, 0.5f);
+	glNormal3dv(topPoint);
 	glVertex3dv(topPoint);
 	glEnd();
 
 	// Base
 	glBegin(mode);
 	glTexCoord2f(0.0f, 0.0f);
+	glNormal3dv(backLeft);
 	glVertex3dv(backLeft);
 	glTexCoord2f(0.0f, 1.0f);
+	glNormal3dv(backRight);
 	glVertex3dv(backRight);
 	glTexCoord2f(1.0f, 1.0f);
+	glNormal3dv(frontLeft);
 	glVertex3dv(frontLeft);
 	glTexCoord2f(1.0f, 0.0f);
+	glNormal3dv(frontRight);
 	glVertex3dv(frontRight);
 	glEnd();
 
@@ -169,39 +205,57 @@ void Prism(GLfloat back, GLfloat front, GLfloat left, GLfloat middle, GLfloat ri
 
 	// Front Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
+	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
+	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
+	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glEnd();
 
 	// Left Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
+	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
+	glNormal3dv(middleBottomFront);
 	glVertex3dv(middleBottomFront);
+	glNormal3dv(middleTopFront);
 	glVertex3dv(middleTopFront);
 	glEnd();
 
 	// Right Face
 	glBegin(mode);
+	glNormal3dv(middleTopFront);
 	glVertex3dv(middleTopFront);
+	glNormal3dv(middleBottomFront);
 	glVertex3dv(middleBottomFront);
+	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
+	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glEnd();
 
 	// Top Face
 	glBegin(mode);
+	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
+	glNormal3dv(middleTopFront);
 	glVertex3dv(middleTopFront);
+	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glEnd();
 
 	// Bottom Face
 	glBegin(mode);
+	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
+	glNormal3dv(middleBottomFront);
 	glVertex3dv(middleBottomFront);
+	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
 	glEnd();
 
@@ -261,12 +315,14 @@ void Circle(GLfloat cx, GLfloat cy, GLfloat r, GLenum mode = GL_TRIANGLE_FAN) {
 
 	glBegin(mode);
 	if (!(mode == GL_LINE_STRIP || mode == GL_LINE_LOOP)) {
+		glNormal3f(cx, cy, 0.0);
 		glVertex2f(cx, cy);
 	}
 	for (int ii = 0; ii <= num_segments; ii++) {
 		float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);
 		float x = r * cosf(theta);
 		float y = r * sinf(theta);
+		glNormal3f(x + cx, y + cy, 0.0);
 		glVertex2f(x + cx, y + cy);
 	}
 	glEnd();
