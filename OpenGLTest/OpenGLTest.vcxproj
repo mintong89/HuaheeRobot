@@ -52,6 +52,9 @@
     <ClInclude Include="Shield.h" />
     <ClInclude Include="UpBody.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="metalGreen.bmp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

@@ -20,51 +20,81 @@ void UpBody() {
 	NewGreen.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(-7, 3, 3);
+	glNormal3f(-7, 3, 3);
 	glVertex3f(-7, 5, 0);
+	glNormal3f(-7, 5, 0);
 	glVertex3f(-7, 5, -3);
+	glNormal3f(-7, 5, -3);
 	glVertex3f(7, 5, -3);
+	glNormal3f(7, 5, -3);
 	glVertex3f(7, 5, 0);
+	glNormal3f(7, 5, 0);
 	glVertex3f(7, 3, 3);
+	glNormal3f(7, 3, 3);
 	glEnd();
 
 	NewGreen.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(-7, 3, 3);
+	glNormal3f(-7, 3, 3);
 	glVertex3f(-7, 5, 0);
+	glNormal3f(-7, 5, 0);
 	glVertex3f(-7, 5, -3);
+	glNormal3f(-7, 5, -3);
 	glVertex3f(-7, 3, -3);
+	glNormal3f(-7, 3, -3);
 	glEnd();
 
 	NewGreen.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(7, 3, 3);
+	glNormal3f(7, 3, 3);
 	glVertex3f(7, 5, 0);
+	glNormal3f(7, 5, 0);
 	glVertex3f(7, 5, -3);
+	glNormal3f(7, 5, -3);
 	glVertex3f(7, 3, -3);
+	glNormal3f(7, 3, -3);
 	glEnd();
 
 	Black.call();
 	glBegin(GL_LINE_LOOP);
 	glVertex3f(-7, 3, 3);
+	glNormal3f(-7, 3, 3);
 	glVertex3f(-7, 5, 0);
+	glNormal3f(-7, 5, 0);
 	glVertex3f(-7, 5, -3);
+	glNormal3f(-7, 5, -3);
 	glVertex3f(7, 5, -3);
+	glNormal3f(7, 5, -3);
 	glVertex3f(7, 5, 0);
+	glNormal3f(7, 5, 0);
 	glVertex3f(7, 3, 3);
+	glNormal3f(7, 3, 3);
 	glEnd();
 
 	Black.call();
 	glBegin(GL_LINES);
 	glVertex3f(-7, 5, 0);
+	glNormal3f(-7, 5, 0);
 	glVertex3f(7, 5, 0);
+	glNormal3f(7, 5, 0);
 	glVertex3f(7, 5, -3);
+	glNormal3f(7, 5, -3);
 	glVertex3f(7, 3, -3);
+	glNormal3f(7, 3, -3);
 	glVertex3f(-7, 5, -3);
+	glNormal3f(-7, 5, -3);
 	glVertex3f(-7, 3, -3);
+	glNormal3f(-7, 3, -3);
 	glVertex3f(-7, 3, -3);
+	glNormal3f(-7, 3, -3);
 	glVertex3f(-7, 3, 3);
+	glNormal3f(-7, 3, 3);
 	glVertex3f(7, 3, -3);
+	glNormal3f(7, 3, -3);
 	glVertex3f(7, 3, 3);
+	glNormal3f(7, 3, 3);
 	glEnd();
 	glPopMatrix();
 
@@ -88,21 +118,33 @@ void UpBody() {
 	Grey.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(-4, 7, -5.2);
+	glNormal3f(-4, 7, -5.2);
 	glVertex3f(4, 7, -5.2);
+	glNormal3f(4, 7, -5.2);
 	glVertex3f(5, 3.5, -5.2);
+	glNormal3f(5, 3.5, -5.2);
 	glVertex3f(4, 0, -5.2);
+	glNormal3f(4, 0, -5.2);
 	glVertex3f(-4, 0, -5.2);
+	glNormal3f(-4, 0, -5.2);
 	glVertex3f(-5, 3.5, -5.2);
+	glNormal3f(-5, 3.5, -5.2);
 	glEnd();
 
 	Black.call();
 	glBegin(GL_LINE_LOOP);
 	glVertex3f(-4, 7, -5.2);
+	glNormal3f(-4, 7, -5.2);
 	glVertex3f(4, 7, -5.2);
+	glNormal3f(4, 7, -5.2);
 	glVertex3f(5, 3.5, -5.2);
+	glNormal3f(5, 3.5, -5.2);
 	glVertex3f(4, 0, -5.2);
+	glNormal3f(4, 0, -5.2);
 	glVertex3f(-4, 0, -5.2);
+	glNormal3f(-4, 0, -5.2);
 	glVertex3f(-5, 3.5, -5.2);
+	glNormal3f(-5, 3.5, -5.2);
 	glEnd();
 	glPopMatrix();
 
@@ -160,8 +202,6 @@ void UpBody() {
 	Cuboid(UHC3[0], UHC3[1], UHC3[2], UHC3[3], UHC3[4], UHC3[5], GL_LINE_LOOP);
 	glPopMatrix();
 
-
-
 	glPushMatrix();
 	glTranslatef(0, 0, 4);
 	LightkGreen.call();
@@ -195,7 +235,9 @@ void UpBody() {
 	glTranslatef(0, 0, 0.5);
 	glBegin(GL_LINES);
 	glVertex3f(-3.5, 3.5, 3.2);
+	glNormal3f(-3.5, 3.5, 3.2);
 	glVertex3f(3.5, -3.5, 3.2);
+	glNormal3f(3.5, -3.5, 3.2);
 	glEnd();
 	glPopMatrix();
 
@@ -204,7 +246,9 @@ void UpBody() {
 	glTranslatef(0, 0, 0.5);
 	glBegin(GL_LINES);
 	glVertex3f(-3.5, 3.5, 3.2);
+	glNormal3f(-3.5, 3.5, 3.2);
 	glVertex3f(3.5, -3.5, 3.2);
+	glNormal3f(3.5, -3.5, 3.2);
 	glEnd();
 	glPopMatrix();
 
@@ -223,7 +267,9 @@ void UpBody() {
 	glTranslatef(0, 0, 1);
 	glBegin(GL_LINES);
 	glVertex3f(-3, 3, 3.2);
+	glNormal3f(-3, 3, 3.2);
 	glVertex3f(3, -3, 3.2);
+	glNormal3f(3, -3, 3.2);
 	glEnd();
 	glPopMatrix();
 
@@ -232,7 +278,9 @@ void UpBody() {
 	glTranslatef(0, 0, 1);
 	glBegin(GL_LINES);
 	glVertex3f(3, -3, 3.2);
+	glNormal3f(3, -3, 3.2);
 	glVertex3f(-3, 3, 3.2);
+	glNormal3f(-3, 3, 3.2);
 	glEnd();
 	glPopMatrix();
 
@@ -251,7 +299,9 @@ void UpBody() {
 	glTranslatef(0, 0, 1.5);
 	glBegin(GL_LINES);
 	glVertex3f(-2.5, 2.5, 3.2);
+	glNormal3f(-2.5, 2.5, 3.2);
 	glVertex3f(2.5, -2.5, 3.2);
+	glNormal3f(2.5, -2.5, 3.2);
 	glEnd();
 	glPopMatrix();
 
@@ -260,7 +310,9 @@ void UpBody() {
 	glTranslatef(0, 0, 1.5);
 	glBegin(GL_LINES);
 	glVertex3f(2.5, -2.5, 3.2);
+	glNormal3f(2.5, -2.5, 3.2);
 	glVertex3f(-2.5, 2.5, 3.2);
+	glNormal3f(-2.5, 2.5, 3.2);
 	glEnd();
 	glPopMatrix();
 
@@ -279,7 +331,9 @@ void UpBody() {
 	glTranslatef(0, 0, 1.5);
 	glBegin(GL_LINES);
 	glVertex3f(-2.5, 2.5, 3.2);
+	glNormal3f(-2.5, 2.5, 3.2);
 	glVertex3f(2.5, -2.5, 3.2);
+	glNormal3f(2.5, -2.5, 3.2);
 	glEnd();
 	glPopMatrix();
 
@@ -288,7 +342,9 @@ void UpBody() {
 	glTranslatef(0, 0, 1.5);
 	glBegin(GL_LINES);
 	glVertex3f(2.5, -2.5, 3.2);
+	glNormal3f(2.5, -2.5, 3.2);
 	glVertex3f(-2.5, 2.5, 3.2);
+	glNormal3f(-2.5, 2.5, 3.2);
 	glEnd();
 	glPopMatrix();
 }

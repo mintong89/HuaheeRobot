@@ -123,4 +123,9 @@
       <Filter>Source Files\DownBody</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="metalGreen.bmp">
+      <Filter>Source Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
