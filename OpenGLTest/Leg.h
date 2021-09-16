@@ -1,2 +1,2 @@
 #pragma once
-void Leg();
+void Leg(GLfloat upperAngle);

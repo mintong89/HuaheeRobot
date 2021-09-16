@@ -24,7 +24,7 @@ ColorIntensity Background(190, 76, 100);
 ColorIntensity LightPoint("FFFFFF");
 
 GLfloat rotateX = 0.0, rotateY = 0.0, rotateZ = 0.0;
-GLfloat translateX = 0.0, translateY = 0.0, translateZ = 0.0;
+GLfloat translateX = 0.0, translateY = 5.0, translateZ = 0.0;
 GLfloat rotateSpeed = 5.0, translateSpeed = 0.2;
 GLfloat cameraInit = 15.0;
 
@@ -47,6 +47,11 @@ boolean leftHandToggle = false;
 // 3
 GLfloat rightHandUpperAngle = 0, rightHandLowerAngle = 0;
 boolean rightHandToggle = false;
+
+// 4
+GLfloat leftLegAngle = 0, rightLegAngle = 0;
+boolean isLeftLegUp = false;
+boolean walkToggle = false;
 
 LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -92,7 +97,7 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 					rotateY = 0.0;
 					rotateZ = 0.0;
 					translateX = 0.0;
-					translateY = 0.0;
+					translateY = 5.0;
 					translateZ = 0.0;
 					break;
 
@@ -127,6 +132,7 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 				case '1': rotateHeadToggle = !rotateHeadToggle; break;
 				case '2': leftHandToggle = !leftHandToggle; break;
 				case '3': rightHandToggle = !rightHandToggle; break;
+				case '4': walkToggle = !walkToggle; break;
 			}
 			break;
 
@@ -229,57 +235,62 @@ void display()
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 	glLineWidth(1.5);
 
-	Sword();
+	// Head
+	glPushMatrix();
+	glTranslatef(0.0, 7.0, -2.0);
+	if (rotateHeadToggle) {
+		glRotatef(rotateHeadAngle, 0.0, 1.0, 0.0);
+	}
+	glScaleA(0.55);
+	Head();
+	glPopMatrix();
 
-	//// Head
-	//glPushMatrix();
-	//glTranslatef(0.0, 7.0, -2.0);
-	//if (rotateHeadToggle) {
-	//	glRotatef(rotateHeadAngle, 0.0, 1.0, 0.0);
-	//}
-	//glScaleA(0.55);
-	//Head();
-	//glPopMatrix();
+	//Upper body
+	UpBody();
+	Engine();
+	//Wings();
 
-	////Upper body
-	//UpBody();
-	//Engine();
-	////Wings();
+	// Bottom body
+	DownBody();
 
-	//// Bottom body
-	//DownBody();
+	// Left Hand
+	glPushMatrix();
+	glTranslatef(-8.0, -9.0, 0.0);
+	glRotatef(-180, 0.0, 1.0, 0.0);
+	glScaleA(0.6);
+	Forearm(leftHandLowerAngle, leftHandUpperAngle);
+	glPopMatrix();
 
-	//// Left Hand
-	//glPushMatrix();
-	//glTranslatef(-8.0, -9.0, 0.0);
-	//glRotatef(-180, 0.0, 1.0, 0.0);
-	//glScaleA(0.6);
-	//Forearm(leftHandLowerAngle, leftHandUpperAngle);
-	//glPopMatrix();
+	// Right Hand
+	glPushMatrix();
+	glTranslatef(8.0, -9.0, 0.0);
+	glScaleA(0.6);
+	Forearm(-rightHandLowerAngle, -rightHandUpperAngle);
+	glPopMatrix();
 
-	//// Right Hand
-	//glPushMatrix();
-	//glTranslatef(8.0, -9.0, 0.0);
-	//glScaleA(0.6);
-	//Forearm(-rightHandLowerAngle, -rightHandUpperAngle);
-	//glPopMatrix();
+	// Left leg
+	glPushMatrix();
+	glTranslatef(-5.0, -15.0, 0.0);
+	glRotatef(30, 0.0, 1.0, 0.0);
+	glScaleA(0.75);
+	Leg(-leftLegAngle);
+	glPopMatrix();
 
-	//// Left leg
-	//glPushMatrix();
-	//glTranslatef(-5.0, -15.0, 0.0);
-	//glRotatef(30, 0.0, 1.0, 0.0);
-	//glScaleA(0.75);
-	//Leg();
-	//glPopMatrix();
+	// Right leg
+	glPushMatrix();
+	glTranslatef(5.0, -15.0, 0.0);
+	glRotatef(-30, 0.0, 1.0, 0.0);
+	glScalef(-1, 1, 1);
+	glScaleA(0.75);
+	Leg(-rightLegAngle);
+	glPopMatrix();
 
-	//// Right leg
-	//glPushMatrix();
-	//glTranslatef(5.0, -15.0, 0.0);
-	//glRotatef(-30, 0.0, 1.0, 0.0);
-	//glScalef(-1, 1, 1);
-	//glScaleA(0.75);
-	//Leg();
-	//glPopMatrix();
+	// Wing
+	glPushMatrix();
+	glTranslatef(0.0, 0.0, -3.1);
+	glRotatef(90, 0.0, 0.0, 1.0);
+	Wings();
+	glPopMatrix();
 
 	/*Shield();*/
 	glPopMatrix();
@@ -307,7 +318,7 @@ void display()
 			leftHandUpperAngle += 0.1;
 		}
 	}
-	else {
+	else if (!walkToggle) {
 		if (leftHandLowerAngle + leftHandUpperAngle >= 0) {
 			leftHandLowerAngle -= 0.1;
 			leftHandUpperAngle -= 0.1;
@@ -321,13 +332,49 @@ void display()
 			rightHandUpperAngle += 0.1;
 		}
 	}
-	else {
+	else if (!walkToggle) {
 		if (rightHandLowerAngle + rightHandUpperAngle >= 0) {
 			rightHandLowerAngle -= 0.1;
 			rightHandUpperAngle -= 0.1;
 		}
 	}
 
+	// 4
+	if (walkToggle) {
+		if (!isLeftLegUp) {
+			leftLegAngle += 0.1;
+			rightHandLowerAngle += 0.1;
+			rightHandUpperAngle += 0.1;
+
+			if (rightLegAngle > 0.0) {
+				rightLegAngle -= 0.1;
+				leftHandLowerAngle -= 0.1;
+				leftHandUpperAngle -= 0.1;
+			}
+		}
+		else {
+			rightLegAngle += 0.1;
+			leftHandLowerAngle += 0.1;
+			leftHandUpperAngle += 0.1;
+
+			if (leftLegAngle > 0.0) {
+				leftLegAngle -= 0.1;
+				rightHandLowerAngle -= 0.1;
+				rightHandUpperAngle -= 0.1;
+			}
+		}
+		if (leftLegAngle >= 15) isLeftLegUp = true;
+		if (rightLegAngle >= 15) isLeftLegUp = false;
+	}
+	else {
+		if (rightLegAngle > 0.0) {
+			rightLegAngle -= 0.1;
+		}
+
+		if (leftLegAngle > 0.0) {
+			leftLegAngle -= 0.1;
+		}
+	}
 //--------------------------------
 //	End of OpenGL drawing
 //--------------------------------
