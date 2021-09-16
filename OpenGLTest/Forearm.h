@@ -1,2 +1,2 @@
 #pragma once
-void Forearm();
+void Forearm(GLfloat lowerAngle, GLfloat upperAngle);
