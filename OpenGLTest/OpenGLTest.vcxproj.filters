@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Wings">
       <UniqueIdentifier>{840b6e45-70f7-4a30-9e22-0274948bc8d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Images">
+      <UniqueIdentifier>{9e4110a3-4ec4-4891-9075-1c75db75b478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sword">
+      <UniqueIdentifier>{676f411f-d034-4b3c-b45a-f4d0cf5070c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prototype.cpp">
@@ -90,6 +96,9 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Body</Filter>
     </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Source Files\Sword</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLTexture.h">
@@ -136,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Resource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
+      <Filter>Source Files\Sword</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

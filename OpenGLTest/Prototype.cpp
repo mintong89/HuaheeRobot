@@ -13,6 +13,7 @@
 #include "Leg.h"
 #include "Wings.h"
 #include "Engine.h"
+#include "Sword.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -228,55 +229,57 @@ void display()
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 	glLineWidth(1.5);
 
-	// Head
-	glPushMatrix();
-	glTranslatef(0.0, 7.0, -2.0);
-	if (rotateHeadToggle) {
-		glRotatef(rotateHeadAngle, 0.0, 1.0, 0.0);
-	}
-	glScaleA(0.55);
-	Head();
-	glPopMatrix();
+	Sword();
 
-	//Upper body
-	UpBody();
-	Engine();
-	//Wings();
+	//// Head
+	//glPushMatrix();
+	//glTranslatef(0.0, 7.0, -2.0);
+	//if (rotateHeadToggle) {
+	//	glRotatef(rotateHeadAngle, 0.0, 1.0, 0.0);
+	//}
+	//glScaleA(0.55);
+	//Head();
+	//glPopMatrix();
 
-	// Bottom body
-	DownBody();
+	////Upper body
+	//UpBody();
+	//Engine();
+	////Wings();
 
-	// Left Hand
-	glPushMatrix();
-	glTranslatef(-8.0, -9.0, 0.0);
-	glRotatef(-180, 0.0, 1.0, 0.0);
-	glScaleA(0.6);
-	Forearm(leftHandLowerAngle, leftHandUpperAngle);
-	glPopMatrix();
+	//// Bottom body
+	//DownBody();
 
-	// Right Hand
-	glPushMatrix();
-	glTranslatef(8.0, -9.0, 0.0);
-	glScaleA(0.6);
-	Forearm(-rightHandLowerAngle, -rightHandUpperAngle);
-	glPopMatrix();
+	//// Left Hand
+	//glPushMatrix();
+	//glTranslatef(-8.0, -9.0, 0.0);
+	//glRotatef(-180, 0.0, 1.0, 0.0);
+	//glScaleA(0.6);
+	//Forearm(leftHandLowerAngle, leftHandUpperAngle);
+	//glPopMatrix();
 
-	// Left leg
-	glPushMatrix();
-	glTranslatef(-5.0, -15.0, 0.0);
-	glRotatef(30, 0.0, 1.0, 0.0);
-	glScaleA(0.75);
-	Leg();
-	glPopMatrix();
+	//// Right Hand
+	//glPushMatrix();
+	//glTranslatef(8.0, -9.0, 0.0);
+	//glScaleA(0.6);
+	//Forearm(-rightHandLowerAngle, -rightHandUpperAngle);
+	//glPopMatrix();
 
-	// Right leg
-	glPushMatrix();
-	glTranslatef(5.0, -15.0, 0.0);
-	glRotatef(-30, 0.0, 1.0, 0.0);
-	glScalef(-1, 1, 1);
-	glScaleA(0.75);
-	Leg();
-	glPopMatrix();
+	//// Left leg
+	//glPushMatrix();
+	//glTranslatef(-5.0, -15.0, 0.0);
+	//glRotatef(30, 0.0, 1.0, 0.0);
+	//glScaleA(0.75);
+	//Leg();
+	//glPopMatrix();
+
+	//// Right leg
+	//glPushMatrix();
+	//glTranslatef(5.0, -15.0, 0.0);
+	//glRotatef(-30, 0.0, 1.0, 0.0);
+	//glScalef(-1, 1, 1);
+	//glScaleA(0.75);
+	//Leg();
+	//glPopMatrix();
 
 	/*Shield();*/
 	glPopMatrix();
