@@ -87,6 +87,9 @@
     <ClCompile Include="Wings.cpp">
       <Filter>Source Files\Wings</Filter>
     </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Body</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLTexture.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="Wings.h">
       <Filter>Source Files\Wings</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Resource Files\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

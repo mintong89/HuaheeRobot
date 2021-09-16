@@ -12,6 +12,7 @@
 #include "DownBody.h"
 #include "Leg.h"
 #include "Wings.h"
+#include "Engine.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -19,6 +20,7 @@
 #define WINDOW_TITLE "OpenGL Window"
 
 ColorIntensity Background(190, 76, 100);
+ColorIntensity LightPoint("FFFFFF");
 
 GLfloat rotateX = 0.0, rotateY = 0.0, rotateZ = 0.0;
 GLfloat translateX = 0.0, translateY = 0.0, translateZ = 0.0;
@@ -84,7 +86,7 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 				case 'M':
 					persepective = !persepective; break;
 
-				case 'B':
+				case 'P':
 					if (lightOn) {
 						amb[0] = 1;
 						amb[1] = 1;
@@ -197,6 +199,12 @@ void display()
 	glClearColor(Background.r, Background.g, Background.b, Background.a);
 	glScaled(0.75, 0.75, 0.75);
 
+	glPointSize(10.0f);
+	LightPoint.call();
+	glBegin(GL_POINTS);
+	glVertex3f(lightPosX, lightPosY, lightPosZ);
+	glEnd();
+
 	glPushMatrix();
 
 	glRotatef(rotateY, 1.0, 0.0, 0.0);
@@ -204,57 +212,52 @@ void display()
 	glRotatef(rotateX, 0.0, 0.0, 1.0);
 	glLineWidth(1.5);
 
-	glPointSize(10.0f);
-	glBegin(GL_POINTS);
-	glVertex3f(lightPosX, lightPosY, lightPosZ);
-	glEnd();
+	// Head
+	glPushMatrix();
+	glTranslatef(0.0, 7.0, -2.0);
+	glScaleA(0.55);
+	Head();
+	glPopMatrix();
 
-	//// Head
-	//glPushMatrix();
-	//glTranslatef(0.0, 7.0, -2.0);
-	//glScaleA(0.55);
-	//Head();
-	//glPopMatrix();
+	//Upper body
+	UpBody();
+	Engine();
+	//Wings();
 
-	////Upper body
-	//UpBody();
+	// Bottom body
+	DownBody();
 
-	Wings();
+	// Left Hand
+	glPushMatrix();
+	glTranslatef(-8.0, -9.0, 0.0);
+	glRotatef(-180, 0.0, 1.0, 0.0);
+	glScaleA(0.6);
+	Forearm();
+	glPopMatrix();
 
-	//// Bottom body
-	//DownBody();
+	// Right Hand
+	glPushMatrix();
+	glTranslatef(8.0, -9.0, 0.0);
+	glScaleA(0.6);
+	Forearm();
+	glPopMatrix();
 
-	//// Left Hand
-	//glPushMatrix();
-	//glTranslatef(-8.0, -9.0, 0.0);
-	//glRotatef(-180, 0.0, 1.0, 0.0);
-	//glScaleA(0.6);
-	//Forearm();
-	//glPopMatrix();
+	// Left leg
+	glPushMatrix();
+	glTranslatef(-5.0, -15.0, 0.0);
+	glRotatef(30, 0.0, 1.0, 0.0);
+	glScaleA(0.75);
+	Leg();
+	glPopMatrix();
 
-	//// Right Hand
-	//glPushMatrix();
-	//glTranslatef(8.0, -9.0, 0.0);
-	//glScaleA(0.6);
-	//Forearm();
-	//glPopMatrix();
-
-	//// Left leg
-	//glPushMatrix();
-	//glTranslatef(-5.0, -15.0, 0.0);
-	//glRotatef(30, 0.0, 1.0, 0.0);
-	//glScaleA(0.75);
-	//Leg();
-	//glPopMatrix();
-
-	//// Left leg
-	//glPushMatrix();
-	//glTranslatef(5.0, -15.0, 0.0);
-	//glRotatef(-30, 0.0, 1.0, 0.0);
-	//glScalef(-1, 1, 1);
-	//glScaleA(0.75);
-	//Leg();
-	//glPopMatrix();
+	// Left leg
+	glPushMatrix();
+	glTranslatef(5.0, -15.0, 0.0);
+	glRotatef(-30, 0.0, 1.0, 0.0);
+	glScalef(-1, 1, 1);
+	glScaleA(0.75);
+	Leg();
+	glPopMatrix();
 
 	/*Shield();*/
 	glPopMatrix();
