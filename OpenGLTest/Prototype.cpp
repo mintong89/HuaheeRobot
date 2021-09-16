@@ -11,6 +11,7 @@
 #include "Shield.h"
 #include "DownBody.h"
 #include "Leg.h"
+#include "Wings.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -205,53 +206,55 @@ void display()
 
 	glPointSize(10.0f);
 	glBegin(GL_POINTS);
-	glVertex3f(lightX, lightY, lightZ);
+	glVertex3f(lightPosX, lightPosY, lightPosZ);
 	glEnd();
 
-	// Head
-	glPushMatrix();
-	glTranslatef(0.0, 7.0, -2.0);
-	glScaleA(0.55);
-	Head();
-	glPopMatrix();
+	//// Head
+	//glPushMatrix();
+	//glTranslatef(0.0, 7.0, -2.0);
+	//glScaleA(0.55);
+	//Head();
+	//glPopMatrix();
 
-	//Upper body
-	UpBody();
+	////Upper body
+	//UpBody();
 
-	// Bottom body
-	DownBody();
+	Wings();
 
-	// Left Hand
-	glPushMatrix();
-	glTranslatef(-8.0, -9.0, 0.0);
-	glRotatef(-180, 0.0, 1.0, 0.0);
-	glScaleA(0.6);
-	Forearm();
-	glPopMatrix();
+	//// Bottom body
+	//DownBody();
 
-	// Right Hand
-	glPushMatrix();
-	glTranslatef(8.0, -9.0, 0.0);
-	glScaleA(0.6);
-	Forearm();
-	glPopMatrix();
+	//// Left Hand
+	//glPushMatrix();
+	//glTranslatef(-8.0, -9.0, 0.0);
+	//glRotatef(-180, 0.0, 1.0, 0.0);
+	//glScaleA(0.6);
+	//Forearm();
+	//glPopMatrix();
 
-	// Left leg
-	glPushMatrix();
-	glTranslatef(-5.0, -15.0, 0.0);
-	glRotatef(30, 0.0, 1.0, 0.0);
-	glScaleA(0.75);
-	Leg();
-	glPopMatrix();
+	//// Right Hand
+	//glPushMatrix();
+	//glTranslatef(8.0, -9.0, 0.0);
+	//glScaleA(0.6);
+	//Forearm();
+	//glPopMatrix();
 
-	// Left leg
-	glPushMatrix();
-	glTranslatef(5.0, -15.0, 0.0);
-	glRotatef(-30, 0.0, 1.0, 0.0);
-	glScalef(-1, 1, 1);
-	glScaleA(0.75);
-	Leg();
-	glPopMatrix();
+	//// Left leg
+	//glPushMatrix();
+	//glTranslatef(-5.0, -15.0, 0.0);
+	//glRotatef(30, 0.0, 1.0, 0.0);
+	//glScaleA(0.75);
+	//Leg();
+	//glPopMatrix();
+
+	//// Left leg
+	//glPushMatrix();
+	//glTranslatef(5.0, -15.0, 0.0);
+	//glRotatef(-30, 0.0, 1.0, 0.0);
+	//glScalef(-1, 1, 1);
+	//glScaleA(0.75);
+	//Leg();
+	//glPopMatrix();
 
 	/*Shield();*/
 	glPopMatrix();

@@ -34,6 +34,9 @@
     <Filter Include="Source Files\DownBody">
       <UniqueIdentifier>{f769265f-6833-48c0-a6cb-632feebfc50f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Wings">
+      <UniqueIdentifier>{840b6e45-70f7-4a30-9e22-0274948bc8d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prototype.cpp">
@@ -81,6 +84,9 @@
     <ClCompile Include="DownBody.cpp">
       <Filter>Source Files\DownBody</Filter>
     </ClCompile>
+    <ClCompile Include="Wings.cpp">
+      <Filter>Source Files\Wings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GLTexture.h">
@@ -121,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="DownBody.h">
       <Filter>Source Files\DownBody</Filter>
+    </ClInclude>
+    <ClInclude Include="Wings.h">
+      <Filter>Source Files\Wings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -36,6 +36,7 @@
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="UpBodycpp.cpp" />
+    <ClCompile Include="Wings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArmWheel.h" />
@@ -51,6 +52,7 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="UpBody.h" />
+    <ClInclude Include="Wings.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="metalGreen.bmp" />

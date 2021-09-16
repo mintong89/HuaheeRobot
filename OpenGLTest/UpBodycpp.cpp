@@ -349,13 +349,9 @@ void UpBody() {
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(0, 2, -5);
+	glTranslatef(0, 3.5, -5);
 	LightkGreen.call();
 	Sphere(2);
 	glPopMatrix();
 
-	glPushMatrix();
-	glTranslatef(6, 0, 0);
-	Cylinder(1.5, 1.5, 1.5);
-	glPopMatrix();
 }
