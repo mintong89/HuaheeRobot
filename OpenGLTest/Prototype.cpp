@@ -181,8 +181,8 @@ void display()
 
 	// Head
 	glPushMatrix();
-	glTranslatef(0.0, 10.0, -2.0);
-	glScaleA(0.75);
+	glTranslatef(0.0, 7.0, -2.0);
+	glScaleA(0.55);
 	Head();
 	glPopMatrix();
 
