@@ -11,7 +11,7 @@
 #include "Shield.h"
 #include "DownBody.h"
 #include "Leg.h"
-#include "Wings.h"
+#include "Boomerang.h"
 #include "Engine.h"
 #include "Sword.h"
 #include "GLTexture.h"
@@ -332,7 +332,7 @@ void display()
 	glPushMatrix();
 	glTranslatef(0.0, 0.0, -3.1);
 	glRotatef(90, 0.0, 0.0, 1.0);
-	Wings();
+	Boomerang();
 	glPopMatrix();
 
 	// Sword
