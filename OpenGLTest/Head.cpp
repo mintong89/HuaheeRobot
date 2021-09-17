@@ -295,7 +295,7 @@ void Head() {
 	glNormal3f(-4, -1, 4);
 	glEnd();
 	glPopMatrix();
-	GreenMetal.start();
+	GreenMetal.end();
 
 	glPushMatrix();
 	Black.call();
@@ -400,7 +400,7 @@ void Head() {
 	glNormal3f(0, 3, 8);
 	glEnd();
 	glPopMatrix();
-	HeadGrey.start();
+	HeadGrey.end();
 
 	//right ear
 	glPushMatrix();
