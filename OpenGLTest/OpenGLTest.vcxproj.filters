@@ -90,7 +90,7 @@
     <ClCompile Include="DownBody.cpp">
       <Filter>Source Files\DownBody</Filter>
     </ClCompile>
-    <ClCompile Include="Boomerang.cpp">
+    <ClCompile Include="Cloak.cpp">
       <Filter>Source Files\Wings</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
@@ -140,7 +140,7 @@
     <ClInclude Include="DownBody.h">
       <Filter>Source Files\DownBody</Filter>
     </ClInclude>
-    <ClInclude Include="Boomerang.h">
+    <ClInclude Include="Cloak.h">
       <Filter>Source Files\Wings</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">

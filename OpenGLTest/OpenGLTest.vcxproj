@@ -38,7 +38,7 @@
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="UpBodycpp.cpp" />
-    <ClCompile Include="Boomerang.cpp" />
+    <ClCompile Include="Cloak.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArmWheel.h" />
@@ -56,7 +56,7 @@
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="UpBody.h" />
-    <ClInclude Include="Boomerang.h" />
+    <ClInclude Include="Cloak.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="bg.bmp" />

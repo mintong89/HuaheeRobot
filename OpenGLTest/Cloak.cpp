@@ -2,7 +2,7 @@
 #include "ColorIntensity.h"
 #include "GLTexture.h"
 
-void Boomerang() {
+void Cloak() {
 	ColorIntensity Black(0, 0, 0);
 	ColorIntensity White(255, 255, 255);
 	ColorIntensity Gold(255, 161, 10);
