@@ -1,6 +1,7 @@
 #include "Shape.h"
 #include "ColorIntensity.h"
 #include "Fingers.h"
+#include "GLTexture.h"
 
 void UpperHand();
 
@@ -30,6 +31,7 @@ void Hand() {
 }
 
 void UpperHand() {
+	ColorIntensity White("FFFFFF");
 	ColorIntensity Black(0, 0, 0);
 	ColorIntensity DarkGreen(21, 160, 104);
 	ColorIntensity DarkBlue(28, 110, 216);
@@ -37,11 +39,14 @@ void UpperHand() {
 	// Outer Hand
 	GLdouble OHC[] = { -8, 8, -8, 0, 8, 4, 0 };
 
-	DarkBlue.call();
+	GLTexture Blue("bluemetal.bmp");
+	Blue.start();
+	White.call();
 	Prism(OHC[0], OHC[1], OHC[2], OHC[3], OHC[4], OHC[5], OHC[6]);
 	Black.call();
 	glLineWidth(1.5);
 	Prism(OHC[0], OHC[1], OHC[2], OHC[3], OHC[4], OHC[5], OHC[6], GL_LINE_LOOP);
+	Blue.end();
 
 
 	// Inner Hand
@@ -59,11 +64,12 @@ void UpperHand() {
 
 	// Middle Hand
 	GLdouble MNC[] = { -4, 4, 16, 8, 6, -6 };
-
+	Blue.start();
 	glPushMatrix();
 	glTranslatef(0.0, 0.0, -4);
-	DarkBlue.call();
+	White.call();
 	Cuboid(MNC[0], MNC[1], MNC[2], MNC[3], MNC[4], MNC[5]);
+	Blue.end();
 
 	Black.call();
 	Cuboid(MNC[0], MNC[1], MNC[2], MNC[3], MNC[4], MNC[5], GL_LINE_LOOP);

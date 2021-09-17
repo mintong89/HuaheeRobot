@@ -1,5 +1,6 @@
 #include "Shape.h"
 #include "ColorIntensity.h"
+#include "GLTexture.h"
 
 void ArmWheelCylinder();
 
@@ -21,6 +22,8 @@ void ArmWheel() {
 	glPopMatrix();
 
 	// Bottom
+	GLTexture Blue("bluemetal.bmp");
+	Blue.start();
 	glPushMatrix();
 	glRotatef(90, 0.0, 0.0, 1.0);
 	glTranslatef(-1.8, 0.0, 0.0);
@@ -29,22 +32,28 @@ void ArmWheel() {
 	Black.call();
 	Prism(-0.0, 2.5, -2.5, -2.5, 0.5, 2.5, -2.5, GL_LINE_LOOP);
 	glPopMatrix();
+	Blue.end();
 
 	// Middle
+	GLTexture Green("greenmetal.bmp");
+	Green.start();
 	glPushMatrix();
 	DarkGreen.call();
 	Cuboid(-2.5, 2.5, 4.33, -4.33, 0.0, -2.5);
 	Black.call();
 	Cuboid(-2.5, 2.5, 4.33, -4.33, 0.0, -2.5, GL_LINE_LOOP);
 	glPopMatrix();
+	Green.end();
 
 	// Top
+	Blue.start();
 	glPushMatrix();
 	DarkBlue.call();
 	Cuboid(-2.5, 2.5, 6.0, 4.0, 2.5, -2.5);
 	Black.call();
 	Cuboid(-2.5, 2.5, 6.0, 4.0, 2.5, -2.5, GL_LINE_LOOP);
 	glPopMatrix();
+	Blue.end();
 }
 
 void ArmWheelCylinder() {
@@ -56,6 +65,7 @@ void ArmWheelCylinder() {
 	glTranslatef(-2.5, 0.0, 0.0);
 
 	glRotatef(90, 0.0, 1.0, 0.0);
+	
 	DarkBlue.call();
 	Cylinder(wSize[0], wSize[1], wSize[2]);
 

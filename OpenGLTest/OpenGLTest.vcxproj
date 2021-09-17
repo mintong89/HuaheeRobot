@@ -59,7 +59,13 @@
     <ClInclude Include="Wings.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="bg.bmp" />
+    <Image Include="bluemetal.bmp" />
+    <Image Include="diamond.bmp" />
+    <Image Include="greenmetal.bmp" />
+    <Image Include="grey.bmp" />
     <Image Include="metalGreen.bmp" />
+    <Image Include="yellow.bmp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -154,5 +154,23 @@
     <Image Include="metalGreen.bmp">
       <Filter>Source Files</Filter>
     </Image>
+    <Image Include="diamond.bmp">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="bg.bmp">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="bluemetal.bmp">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="greenmetal.bmp">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="yellow.bmp">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="grey.bmp">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include "Shape.h"
 #include "ColorIntensity.h"
+#include "GLTexture.h"
 
 void Head() {
 	ColorIntensity HeadGreen(0,160,62);
@@ -19,6 +20,7 @@ void Head() {
 	ColorIntensity Metal(48, 48, 48);
 	ColorIntensity MouthBlue(0, 0, 255);
 	ColorIntensity Yellow(245, 246, 0);
+	ColorIntensity White(255, 255, 255);
 
 	glLineWidth(4);
 
@@ -223,32 +225,40 @@ void Head() {
 	glEnd();
 	glPopMatrix();
 
+	GLTexture GreenMetal("greenmetal.bmp");
+	GreenMetal.start();
 	glPushMatrix();
 	glRotatef(45, 0, 1, 0);
 	GLdouble GHC[] = { -4,4,4,-4,4,-4 };
-	HeadGreen.call();
+	White.call();
 	Cuboid(GHC[0], GHC[1], GHC[2], GHC[3], GHC[4], GHC[5]);
 	Black.call();
 	Cuboid(GHC[0], GHC[1], GHC[2], GHC[3], GHC[4], GHC[5],GL_LINE_LOOP);
 	glPopMatrix();
+	GreenMetal.end();
 
+	GLTexture Blue("bluemetal.bmp");
+	Blue.start();
 	glPushMatrix();
 	glRotatef(90, 1, 0, 0);
 	GLdouble LMHC[] = { -4,-5,4,3,4,-1 };
-	MouthBlue.call();
+	White.call();
 	Cuboid(LMHC[0], LMHC[1], LMHC[2], LMHC[3], LMHC[4], LMHC[5]);
 	Black.call();
 	Cuboid(LMHC[0], LMHC[1], LMHC[2], LMHC[3], LMHC[4], LMHC[5], GL_LINE_LOOP);
 	glPopMatrix();
+	Blue.end();
 
+	Blue.start();
 	glPushMatrix();
 	glRotatef(90, 1, 0, 0);
 	GLdouble RMHC[] = { 4,5,4,3,4,-1 };
-	MouthBlue.call();
+	White.call();
 	Cuboid(RMHC[0], RMHC[1], RMHC[2], RMHC[3], RMHC[4], RMHC[5]);
 	Black.call();
 	Cuboid(RMHC[0], RMHC[1], RMHC[2], RMHC[3], RMHC[4], RMHC[5], GL_LINE_LOOP);
 	glPopMatrix();
+	Blue.end();
 
 	////eye
 	glPushMatrix();
