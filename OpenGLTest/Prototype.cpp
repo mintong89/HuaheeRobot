@@ -291,7 +291,6 @@ void display()
 	//Upper body
 	UpBody();
 	Engine();
-	//Wings();
 
 	// Bottom body
 	DownBody();
@@ -328,7 +327,7 @@ void display()
 	Leg(-rightLegAngle);
 	glPopMatrix();
 
-	// Wing
+	// Clock
 	glPushMatrix();
 	glTranslatef(0.0, 0.0, -3.1);
 	glRotatef(90, 0.0, 0.0, 1.0);
