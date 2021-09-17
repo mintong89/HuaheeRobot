@@ -2,9 +2,9 @@
 #include "ColorIntensity.h"
 #include "GLTexture.h"
 
-void Finger(GLfloat x, GLfloat y, GLfloat z);
+void Finger(GLfloat x, GLfloat y, GLfloat z, GLfloat fingerAngle);
 
-void Fingers() {
+void Fingers(GLfloat fingerAngle) {
 	ColorIntensity White("FFFFFF");
 	ColorIntensity Black(0, 0, 0);
 
@@ -32,20 +32,22 @@ void Fingers() {
 	FingerGrey.start();
 	glPushMatrix();
 	White.call();
+	glTranslatef(-4.0, -3.0, 0.0);
+	glRotatef(fingerAngle, 0.0, 0.0, 1.0);
 	glRotatef(50, 0.0, 0.0, 1.0);
-	Cuboid(-7, -5, 0, -5, 10, 8);
+	Cuboid(-2, 0, 0, -5, 10, 8);
 	Black.call();
-	Cuboid(-7, -5, 0, -5, 10, 8, GL_LINE_LOOP);
+	Cuboid(-2, 0, 0, -5, 10, 8, GL_LINE_LOOP);
 	glPopMatrix();
 	FingerGrey.end();
 
-	Finger(4.5, 1.0, 0.0);
-	Finger(4.5, 1.0, -2.0);
-	Finger(4.5, 1.0, -4.0);
-	Finger(4.5, 1.0, -6.0);
+	Finger(4.5, 1.0, 0.0, fingerAngle);
+	Finger(4.5, 1.0, -2.0, fingerAngle);
+	Finger(4.5, 1.0, -4.0, fingerAngle);
+	Finger(4.5, 1.0, -6.0, fingerAngle);
 }
 
-void Finger(GLfloat x, GLfloat y, GLfloat z) {
+void Finger(GLfloat x, GLfloat y, GLfloat z, GLfloat fingerAngle) {
 	ColorIntensity Gray(108, 110, 114);
 	ColorIntensity Black(0, 0, 0);
 	ColorIntensity White(255, 255, 255);
@@ -57,6 +59,7 @@ void Finger(GLfloat x, GLfloat y, GLfloat z) {
 	Gray.call();
 	glRotatef(70, 0.0, 0.0, 1.0);
 	glTranslatef(x, y, z);
+	glRotatef(-fingerAngle, 0.0, 0.0, 1.0);
 	Cuboid(-3, -1, 0, -8, 10, 8);
 	Black.call();
 	Cuboid(-3, -1, 0, -8, 10, 8, GL_LINE_LOOP);
@@ -68,10 +71,12 @@ void Finger(GLfloat x, GLfloat y, GLfloat z) {
 	glPushMatrix();
 	Gray.call();
 	glRotatef(20, 0.0, 0.0, 1.0);
-	glTranslatef(x + 3.75, y - 2.5, z);
-	Cuboid(-3, -1, 0, -6, 10, 8);
+	glTranslatef(x , y, z);
+	glRotatef(-fingerAngle * 2, 0.0, 0.0, 1.0);
+	glTranslatef(6.75, -2.5, 0.0);
+	Cuboid(-6, -4, 0, -6, 10, 8);
 	Black.call();
-	Cuboid(-3, -1, 0, -6, 10, 8, GL_LINE_LOOP);
+	Cuboid(-6, -4, 0, -6, 10, 8, GL_LINE_LOOP);
 	glPopMatrix();
 	FingerGrey.end();
 }

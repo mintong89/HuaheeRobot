@@ -7,7 +7,7 @@
 void LowerArm();
 void UpperArm();
 
-void Forearm(GLfloat lowerAngle, GLfloat upperAngle) {
+void Forearm(GLfloat lowerAngle, GLfloat upperAngle, GLfloat innerHandAngle = 0.0) {
 	ColorIntensity Yellow(216, 176, 28);
 	ColorIntensity White(255, 255, 255);
 
@@ -52,7 +52,7 @@ void Forearm(GLfloat lowerAngle, GLfloat upperAngle) {
 	glScalef(0.5, 0.5, 0.5);
 	glRotatef(-65, 0.0, 1.0, 0.0);
 	glTranslatef(1.5, -12.0, 3.0);
-	Hand();
+	Hand(innerHandAngle);
 	glPopMatrix();
 
 	glPopMatrix();

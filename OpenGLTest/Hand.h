@@ -1,2 +1,2 @@
 #pragma once
-void Hand();
+void Hand(GLfloat innerHandAngle = 0.0);

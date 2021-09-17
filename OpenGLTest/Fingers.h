@@ -1,2 +1,2 @@
 #pragma once
-void Fingers();
+void Fingers(GLfloat fingerAngle);

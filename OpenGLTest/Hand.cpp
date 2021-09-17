@@ -5,7 +5,7 @@
 
 void UpperHand();
 
-void Hand() {
+void Hand(GLfloat innerHandAngle = 0.0) {
 	ColorIntensity White("FFFFFF");
 	ColorIntensity Black(0, 0, 0);
 
@@ -26,7 +26,7 @@ void Hand() {
 	glTranslatef(-4, -19, -9.0);
 	glRotatef(50, 0.0, 1.0, 0.0);
 	glRotatef(-50, 0.0, 0.0, 1.0);
-	Fingers();
+	Fingers(innerHandAngle);
 	glPopMatrix();
 }
 

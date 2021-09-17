@@ -57,6 +57,11 @@ GLfloat leftLegAngle = 0, rightLegAngle = 0;
 boolean isLeftLegUp = false;
 boolean walkToggle = false;
 
+// 5
+GLfloat innerHandAngle = 0.0, swordSize = 0.0, attackAngle = 0.0;
+boolean isLeftHandUp = false, isSwordSizeFinish = false, isLeftLowerHandIn = false, isSwordUp = false;
+boolean swordAttackToggle = false;
+
 LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	switch(msg)
@@ -146,6 +151,7 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 				case '2': leftHandToggle = !leftHandToggle; break;
 				case '3': rightHandToggle = !rightHandToggle; break;
 				case '4': walkToggle = !walkToggle; break;
+				case '5': swordAttackToggle = !swordAttackToggle; break;
 			}
 			break;
 
@@ -297,7 +303,7 @@ void display()
 	glTranslatef(-8.0, -9.0, 0.0);
 	glRotatef(-180, 0.0, 1.0, 0.0);
 	glScaleA(0.6);
-	Forearm(leftHandLowerAngle, leftHandUpperAngle);
+	Forearm(leftHandLowerAngle + attackAngle, leftHandUpperAngle + attackAngle, innerHandAngle);
 	glPopMatrix();
 
 	// Right Hand
@@ -331,6 +337,19 @@ void display()
 	Wings();
 	glPopMatrix();
 
+	// Sword
+	glPushMatrix();
+	glRotatef(-attackAngle * 1.75, 1.0, 0.0, 0.0);
+	if (isSwordUp) {
+		glRotatef(-attackAngle * 0.05, 1.0, 0.0, 0.0);
+	}
+	glTranslatef(-9.0, -2.0, 12.0);
+	glRotatef(10, 0.0, 0.0, 1.0);
+	glRotatef(90, 0.0, 1.0, 0.0);
+	glScaleA(swordSize);
+	Sword();
+	glPopMatrix();
+
 	/*Shield();*/
 	glPopMatrix();
 
@@ -357,10 +376,10 @@ void display()
 			leftHandUpperAngle += 0.1;
 		}
 	}
-	else if (!walkToggle) {
+	else if (!walkToggle && !swordAttackToggle) {
 		if (leftHandLowerAngle + leftHandUpperAngle >= 0) {
-			leftHandLowerAngle -= 0.1;
-			leftHandUpperAngle -= 0.1;
+			leftHandLowerAngle = 0;
+			leftHandUpperAngle = 0;
 		}
 	}
 
@@ -371,15 +390,13 @@ void display()
 			rightHandUpperAngle += 0.1;
 		}
 	}
-	else if (!walkToggle) {
-		if (rightHandLowerAngle + rightHandUpperAngle >= 0) {
-			rightHandLowerAngle -= 0.1;
-			rightHandUpperAngle -= 0.1;
-		}
+	else if (!walkToggle && !swordAttackToggle) {
+		rightHandLowerAngle = 0;
+		rightHandUpperAngle = 0;
 	}
 
 	// 4
-	if (walkToggle) {
+	if (walkToggle && !leftHandToggle && !rightHandToggle && !swordAttackToggle) {
 		if (!isLeftLegUp) {
 			leftLegAngle += 0.1;
 			rightHandLowerAngle += 0.1;
@@ -406,14 +423,56 @@ void display()
 		if (rightLegAngle >= 15) isLeftLegUp = false;
 	}
 	else {
-		if (rightLegAngle > 0.0) {
-			rightLegAngle -= 0.1;
+		rightLegAngle = 0.0;
+
+		leftLegAngle -= 0.0;
+	}
+
+	// 5
+	if (swordAttackToggle && !walkToggle && !leftHandToggle && !rightHandToggle) {
+		if (leftHandLowerAngle + leftHandUpperAngle <= 80) {
+			leftHandLowerAngle += 0.1;
+			leftHandUpperAngle += 0.1;
 		}
 
-		if (leftLegAngle > 0.0) {
-			leftLegAngle -= 0.1;
+		if (leftHandLowerAngle + leftHandUpperAngle > 80) isLeftHandUp = true;
+
+		if (isLeftHandUp && swordSize <= 0.5) {
+			swordSize += 0.001;
+		}
+
+		if (swordSize >= 0.5) isSwordSizeFinish = true;
+
+		if (isSwordSizeFinish && innerHandAngle <= 30) {
+			innerHandAngle += 0.1;
+		}
+
+		if (innerHandAngle > 30) isLeftLowerHandIn = true;
+
+		if (isLeftLowerHandIn && attackAngle <= 30 && !isSwordUp) {
+			attackAngle += 0.1;
+		}
+
+		if (attackAngle >= 30) isSwordUp = true;
+
+		if (isSwordUp && attackAngle >= -40) {
+			attackAngle -= 1.0;
 		}
 	}
+	else {
+		if (isLeftHandUp) {
+			leftHandLowerAngle = 0;
+			leftHandUpperAngle = 0;
+			swordSize = 0;
+			innerHandAngle = 0;
+			attackAngle = 0;
+			isLeftHandUp = false;
+			isLeftLowerHandIn = false;
+			isSwordSizeFinish = false;
+			isSwordUp = false;
+		}
+	}
+
 //--------------------------------
 //	End of OpenGL drawing
 //--------------------------------
