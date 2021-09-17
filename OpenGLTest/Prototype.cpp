@@ -21,7 +21,7 @@
 
 #define WINDOW_TITLE "OpenGL Window"
 
-ColorIntensity Background(190, 76, 100);
+ColorIntensity Background("000000");
 ColorIntensity LightPoint("FFFFFF");
 
 GLfloat rotateX = 0.0, rotateY = 0.0, rotateZ = 0.0;
@@ -39,6 +39,8 @@ boolean persepective = false;
 
 string bmpFileName;
 boolean isChange = true;
+
+GLfloat speed = 1.0;
 
 // 1
 GLfloat rotateHeadAngle = 0;
@@ -218,7 +220,7 @@ void display()
 			1 - translateY * 0.1,
 			1 - translateZ * 0.1,
 			40 - translateZ * 0.1);
-		glTranslatef(0, 0, -20);
+		glTranslatef(0, -5, -20);
 	}
 	glMatrixMode(GL_MODELVIEW);
 	glEnable(GL_DEPTH_TEST);
@@ -249,17 +251,12 @@ void display()
 	glEnd();
 
 	//Background
-	GLTexture BackgroundPicture("bg.bmp");
-	if (isChange == true) {
-		BackgroundPicture.setFileName("bg2.bmp");
-	}
-	else
-	{
-		BackgroundPicture.setFileName("bg.bmp");
-	}
-	
-	BackgroundPicture.start();
+	GLTexture BGImages("bg.bmp");
+	isChange ? BGImages.setFileName("bg2.bmp") : BGImages.setFileName("bg.bmp");
+
 	glPushMatrix();
+	glTranslatef(-translateX, -translateY, -translateZ);
+	BGImages.start();
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 1.0f);
 	glVertex3f(40, 30, -9);
@@ -270,8 +267,9 @@ void display()
 	glTexCoord2f(0.0f, 0.0f);
 	glVertex3f(40, -40, -9);
 	glEnd();
+	BGImages.end();
 	glPopMatrix();
-	BackgroundPicture.end();
+
 
 	glPushMatrix();
 
@@ -350,30 +348,38 @@ void display()
 	Sword();
 	glPopMatrix();
 
-	/*Shield();*/
+	// Shield
+	glPushMatrix();
+	glRotatef(-rightHandUpperAngle * 2, 1.0, 0.0, 0.0);
+	glTranslatef(10.0, -4.0, 0.0);
+	glRotatef(90, 0.0, 1.0, 0.0);
+	glScaleA(1.5);
+	Shield();
+	glPopMatrix();
+
 	glPopMatrix();
 
 	// 1
 	if (rotateHeadToggle) {
-		rotateHeadIsUp ? rotateHeadAngle -= 0.1 : rotateHeadAngle += 0.1;
+		rotateHeadIsUp ? rotateHeadAngle -= speed : rotateHeadAngle += speed;
 		if (rotateHeadAngle <= -70 || rotateHeadAngle >= 70) {
 			rotateHeadIsUp = !rotateHeadIsUp;
 		}
 	}
 	else {
 		if (rotateHeadAngle < 0) {
-			rotateHeadAngle += 0.1;
+			rotateHeadAngle += speed;
 		}
 		else {
-			rotateHeadAngle -= 0.1;
+			rotateHeadAngle -= speed;
 		}
 	}
 
 	// 2
 	if (leftHandToggle) {
 		if (leftHandLowerAngle + leftHandUpperAngle <= 180) {
-			leftHandLowerAngle += 0.1;
-			leftHandUpperAngle += 0.1;
+			leftHandLowerAngle += speed;
+			leftHandUpperAngle += speed;
 		}
 	}
 	else if (!walkToggle && !swordAttackToggle) {
@@ -386,8 +392,8 @@ void display()
 	// 3
 	if (rightHandToggle) {
 		if (rightHandLowerAngle + rightHandUpperAngle <= 180) {
-			rightHandLowerAngle += 0.1;
-			rightHandUpperAngle += 0.1;
+			rightHandLowerAngle += speed;
+			rightHandUpperAngle += speed;
 		}
 	}
 	else if (!walkToggle && !swordAttackToggle) {
@@ -398,25 +404,25 @@ void display()
 	// 4
 	if (walkToggle && !leftHandToggle && !rightHandToggle && !swordAttackToggle) {
 		if (!isLeftLegUp) {
-			leftLegAngle += 0.1;
-			rightHandLowerAngle += 0.1;
-			rightHandUpperAngle += 0.1;
+			leftLegAngle += speed;
+			rightHandLowerAngle += speed;
+			rightHandUpperAngle += speed;
 
 			if (rightLegAngle > 0.0) {
-				rightLegAngle -= 0.1;
-				leftHandLowerAngle -= 0.1;
-				leftHandUpperAngle -= 0.1;
+				rightLegAngle -= speed;
+				leftHandLowerAngle -= speed;
+				leftHandUpperAngle -= speed;
 			}
 		}
 		else {
-			rightLegAngle += 0.1;
-			leftHandLowerAngle += 0.1;
-			leftHandUpperAngle += 0.1;
+			rightLegAngle += speed;
+			leftHandLowerAngle += speed;
+			leftHandUpperAngle += speed;
 
 			if (leftLegAngle > 0.0) {
-				leftLegAngle -= 0.1;
-				rightHandLowerAngle -= 0.1;
-				rightHandUpperAngle -= 0.1;
+				leftLegAngle -= speed;
+				rightHandLowerAngle -= speed;
+				rightHandUpperAngle -= speed;
 			}
 		}
 		if (leftLegAngle >= 15) isLeftLegUp = true;
@@ -425,38 +431,38 @@ void display()
 	else {
 		rightLegAngle = 0.0;
 
-		leftLegAngle -= 0.0;
+		leftLegAngle = 0.0;
 	}
 
 	// 5
 	if (swordAttackToggle && !walkToggle && !leftHandToggle && !rightHandToggle) {
 		if (leftHandLowerAngle + leftHandUpperAngle <= 80) {
-			leftHandLowerAngle += 0.1;
-			leftHandUpperAngle += 0.1;
+			leftHandLowerAngle += speed;
+			leftHandUpperAngle += speed;
 		}
 
 		if (leftHandLowerAngle + leftHandUpperAngle > 80) isLeftHandUp = true;
 
 		if (isLeftHandUp && swordSize <= 0.5) {
-			swordSize += 0.001;
+			swordSize += speed / 100.0;
 		}
 
 		if (swordSize >= 0.5) isSwordSizeFinish = true;
 
 		if (isSwordSizeFinish && innerHandAngle <= 30) {
-			innerHandAngle += 0.1;
+			innerHandAngle += speed;
 		}
 
 		if (innerHandAngle > 30) isLeftLowerHandIn = true;
 
 		if (isLeftLowerHandIn && attackAngle <= 30 && !isSwordUp) {
-			attackAngle += 0.1;
+			attackAngle += speed;
 		}
 
 		if (attackAngle >= 30) isSwordUp = true;
 
 		if (isSwordUp && attackAngle >= -40) {
-			attackAngle -= 1.0;
+			attackAngle -= speed * 10;
 		}
 	}
 	else {
