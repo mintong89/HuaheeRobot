@@ -151,9 +151,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="metalGreen.bmp">
-      <Filter>Source Files</Filter>
-    </Image>
     <Image Include="diamond.bmp">
       <Filter>Resource Files\Images</Filter>
     </Image>
@@ -170,6 +167,9 @@
       <Filter>Resource Files\Images</Filter>
     </Image>
     <Image Include="grey.bmp">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="bg2.bmp">
       <Filter>Resource Files\Images</Filter>
     </Image>
   </ItemGroup>

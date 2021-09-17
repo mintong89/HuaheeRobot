@@ -205,56 +205,74 @@ void Prism(GLfloat back, GLfloat front, GLfloat left, GLfloat middle, GLfloat ri
 
 	// Front Face
 	glBegin(mode);
+	glTexCoord2f(0.0f, 0.0f);
 	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
+	glTexCoord2f(0.0f, 1.0f);
 	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
+	glTexCoord2f(1.0f, 1.0f);
 	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
+	glTexCoord2f(1.0f, 0.0f);
 	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glEnd();
 
 	// Left Face
 	glBegin(mode);
+	glTexCoord2f(0.0f, 0.0f);
 	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
+	glTexCoord2f(0.0f, 1.0f);
 	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
+	glTexCoord2f(1.0f, 1.0f);
 	glNormal3dv(middleBottomFront);
 	glVertex3dv(middleBottomFront);
+	glTexCoord2f(1.0f, 0.0f);
 	glNormal3dv(middleTopFront);
 	glVertex3dv(middleTopFront);
 	glEnd();
 
 	// Right Face
 	glBegin(mode);
+	glTexCoord2f(0.0f, 0.0f);
 	glNormal3dv(middleTopFront);
 	glVertex3dv(middleTopFront);
+	glTexCoord2f(0.0f, 1.0f);
 	glNormal3dv(middleBottomFront);
 	glVertex3dv(middleBottomFront);
+	glTexCoord2f(1.0f, 1.0f);
 	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
+	glTexCoord2f(1.0f, 0.0f);
 	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glEnd();
 
 	// Top Face
 	glBegin(mode);
+	glTexCoord2f(0.5f, 1.0f);
 	glNormal3dv(leftTopBack);
 	glVertex3dv(leftTopBack);
+	glTexCoord2f(0.0f, 0.0f);
 	glNormal3dv(middleTopFront);
 	glVertex3dv(middleTopFront);
+	glTexCoord2f(1.0f, 0.0f);
 	glNormal3dv(rightTopBack);
 	glVertex3dv(rightTopBack);
 	glEnd();
 
 	// Bottom Face
 	glBegin(mode);
+	glTexCoord2f(0.5f, 1.0f);
 	glNormal3dv(leftBottomBack);
 	glVertex3dv(leftBottomBack);
+	glTexCoord2f(0.0f, 0.0f);
 	glNormal3dv(middleBottomFront);
 	glVertex3dv(middleBottomFront);
+	glTexCoord2f(1.0f, 0.0f);
 	glNormal3dv(rightBottomBack);
 	glVertex3dv(rightBottomBack);
 	glEnd();

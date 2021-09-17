@@ -14,6 +14,7 @@
 #include "Wings.h"
 #include "Engine.h"
 #include "Sword.h"
+#include "GLTexture.h"
 
 #pragma comment (lib, "OpenGL32.lib")
 #pragma comment (lib, "GLU32.lib")
@@ -35,6 +36,9 @@ GLfloat spe[] = { 1, 1, 1, 1 };
 GLfloat pos[] = { lightPosX, lightPosY, lightPosZ, 0.5 };
 boolean lightOn = true;
 boolean persepective = false;
+
+string bmpFileName;
+boolean isChange = true;
 
 // 1
 GLfloat rotateHeadAngle = 0;
@@ -103,6 +107,15 @@ LRESULT WINAPI WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam
 
 				case 'M':
 					persepective = !persepective; break;
+
+				case 'T':
+					if (isChange == true) {
+						isChange = false;
+					}
+					else if(isChange == false) {
+						isChange = true;
+					}
+					break;
 
 				case 'P':
 					if (lightOn) {
@@ -183,6 +196,7 @@ void display()
 {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+
 	if (!persepective) {
 		glOrtho(-cameraInit - translateX,
 			cameraInit - translateX,
@@ -227,6 +241,31 @@ void display()
 	glBegin(GL_POINTS);
 	glVertex3f(lightPosX, lightPosY, lightPosZ);
 	glEnd();
+
+	//Background
+	GLTexture BackgroundPicture("bg.bmp");
+	if (isChange == true) {
+		BackgroundPicture.setFileName("bg2.bmp");
+	}
+	else
+	{
+		BackgroundPicture.setFileName("bg.bmp");
+	}
+	
+	BackgroundPicture.start();
+	glPushMatrix();
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex3f(40, 30, -9);
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex3f(-40, 30, -9);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex3f(-40, -40, -9);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex3f(40, -40, -9);
+	glEnd();
+	glPopMatrix();
+	BackgroundPicture.end();
 
 	glPushMatrix();
 

@@ -1,8 +1,10 @@
 #include "Shape.h"
 #include "ColorIntensity.h"
+#include "GLTexture.h"
 
 void Sword() {
 	ColorIntensity Black(0, 0, 0);
+	ColorIntensity White(255, 255, 255);
 	ColorIntensity Gold(255, 161, 10);
 	ColorIntensity DarkGreen(16, 176, 63);
 	ColorIntensity NewGreen(2, 225, 112);
@@ -19,18 +21,22 @@ void Sword() {
 
 	glLineWidth(4);
 
+	GLTexture SwordBlue("diamond.bmp");
+	SwordBlue.start();
 	glPushMatrix();
-	LightkGreen.call();
+	White.call();
 	Cuboid(-1, 1, 19, 0, 1, 0);
 	glPopMatrix();
+	SwordBlue.end();
 
 	glPushMatrix();
 	Black.call();
 	Cuboid(-1, 1, 19, 0, 1, 0,GL_LINE_LOOP);
 	glPopMatrix();
 
+	SwordBlue.start();
 	glPushMatrix();
-	LightkGreen.call();
+	White.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(0, 23, 0.5);
 	glNormal3f(0, 23, 0.5);
@@ -44,6 +50,7 @@ void Sword() {
 	glNormal3f(1, 19, 1);
 	glEnd();
 	glPopMatrix();
+	SwordBlue.end();
 
 	glPushMatrix();
 	Black.call();
@@ -79,17 +86,22 @@ void Sword() {
 	Cuboid(-5, 5, 0, -2, 2, -1, GL_LINE_LOOP);
 	glPopMatrix();
 
+	GLTexture SwordYellow("yellow.bmp");
+	SwordYellow.start();
 	glPushMatrix();
 	glTranslatef(0, -1, 1.7);
-	Gold.call();
+	White.call();
 	Sphere(1);
 	glPopMatrix();
+	SwordYellow.end();
 
+	SwordYellow.start();
 	glPushMatrix();
 	glTranslatef(0, -1, -0.6);
-	Gold.call();
+	White.call();
 	Sphere(1);
 	glPopMatrix();
+	SwordYellow.end();
 
 	glPushMatrix();
 	NeoDarkGreen.call();
@@ -98,9 +110,11 @@ void Sword() {
 	Cylinder(1, 1, 8);
 	glPopMatrix();
 
+	SwordYellow.start();
 	glPushMatrix();
 	glTranslatef(0, -10, 0.5);
-	Gold.call();
+	White.call();
 	Sphere(1);
 	glPopMatrix();
+	SwordYellow.end();
 }

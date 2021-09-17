@@ -113,7 +113,7 @@ void DownBody() {
 
 	YellowDia.start();
 	glPushMatrix();
-	BackYellow.call();
+	White.call();
 	glTranslatef(-6, -2.5, 1.55);
 	Sphere(1.5);
 	glPopMatrix();

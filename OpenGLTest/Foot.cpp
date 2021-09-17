@@ -1,5 +1,6 @@
 #include "ColorIntensity.h"
 #include "Shape.h"
+#include "GLTexture.h"
 
 void FootShape(GLdouble* leftTopBack,
 	GLdouble* rightTopBack,

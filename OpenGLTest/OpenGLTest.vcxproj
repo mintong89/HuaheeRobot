@@ -60,11 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="bg.bmp" />
+    <Image Include="bg2.bmp" />
     <Image Include="bluemetal.bmp" />
     <Image Include="diamond.bmp" />
     <Image Include="greenmetal.bmp" />
     <Image Include="grey.bmp" />
-    <Image Include="metalGreen.bmp" />
     <Image Include="yellow.bmp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

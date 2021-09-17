@@ -261,6 +261,8 @@ void Head() {
 	Blue.end();
 
 	////eye
+	GLTexture EyeGold("yellow.bmp");
+	EyeGold.start();
 	glPushMatrix();
 	GLdouble EHC[] = { 1,4,3,2,5,0 };
 	Gold.call();
@@ -268,7 +270,9 @@ void Head() {
 	Black.call();
 	Cuboid(EHC[0], EHC[1], EHC[2], EHC[3], EHC[4], EHC[5], GL_LINE_LOOP);
 	glPopMatrix();
+	EyeGold.end();
 
+	EyeGold.start();
 	glPushMatrix();
 	GLdouble ELHC[] = { -1,-4,3,2,5,0 };
 	Gold.call();
@@ -276,7 +280,9 @@ void Head() {
 	Black.call();
 	Cuboid(ELHC[0], ELHC[1], ELHC[2], ELHC[3], ELHC[4], ELHC[5], GL_LINE_LOOP);
 	glPopMatrix();
+	EyeGold.end();
 
+	GreenMetal.start();
 	glPushMatrix();
 	NewGreen.call();
 	glTranslatef(0, 2, 0);
@@ -289,6 +295,7 @@ void Head() {
 	glNormal3f(-4, -1, 4);
 	glEnd();
 	glPopMatrix();
+	GreenMetal.start();
 
 	glPushMatrix();
 	Black.call();
@@ -330,9 +337,11 @@ void Head() {
 	glPopMatrix();
 
 	//other
+	GLTexture HeadGrey("grey.bmp");
+	HeadGrey.start();
 	glPushMatrix();
 	glTranslatef(0, -3, 0);
-	NeoGrey.call();
+	White.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(4, 4, 4);
 	glNormal3f(4, 4, 4);
@@ -344,6 +353,7 @@ void Head() {
 	glNormal3f(0, 3, 8);
 	glEnd();
 	glPopMatrix();
+	HeadGrey.end();
 
 	glPushMatrix();
 	glTranslatef(0, -3, 0);
@@ -375,9 +385,10 @@ void Head() {
 	glEnd();
 	glPopMatrix();
 
+	HeadGrey.start();
 	glPushMatrix();
 	glTranslatef(0, -3, 0);
-	NeoGrey.call();
+	White.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(-4, 4, 4);
 	glNormal3f(-4, 4, 4);
@@ -389,6 +400,7 @@ void Head() {
 	glNormal3f(0, 3, 8);
 	glEnd();
 	glPopMatrix();
+	HeadGrey.start();
 
 	//right ear
 	glPushMatrix();

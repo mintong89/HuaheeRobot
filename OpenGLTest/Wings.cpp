@@ -1,8 +1,10 @@
 #include "Shape.h"
 #include "ColorIntensity.h"
+#include "GLTexture.h"
 
 void Wings() {
 	ColorIntensity Black(0, 0, 0);
+	ColorIntensity White(255, 255, 255);
 	ColorIntensity Gold(255, 161, 10);
 	ColorIntensity DarkGreen(16, 176, 63);
 	ColorIntensity NewGreen(2, 225, 112);
@@ -17,8 +19,10 @@ void Wings() {
 	ColorIntensity UpShieldGreen(0, 255, 166);
 	ColorIntensity Metal(48, 48, 48);
 
+	GLTexture WingBlue("diamond.bmp");
+	WingBlue.start();
 	glPushMatrix();
-	LightkGreen.call();
+	White.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(0,3,0);
 	glNormal3f(0, 3, 0);
@@ -28,6 +32,7 @@ void Wings() {
 	glNormal3f(-11, 7, 0);
 	glEnd();
 	glPopMatrix();
+	WingBlue.end();
 
 	glPushMatrix();
 	Black.call();
@@ -41,8 +46,9 @@ void Wings() {
 	glEnd();
 	glPopMatrix();
 
+	WingBlue.start();
 	glPushMatrix();
-	LightkGreen.call();
+	White.call();
 	glBegin(GL_POLYGON);
 	glVertex3f(0, 0, 0);
 	glNormal3f(0, 0, 0);
@@ -52,6 +58,7 @@ void Wings() {
 	glNormal3f(-11, -11, 0);
 	glEnd();
 	glPopMatrix();
+	WingBlue.end();
 
 	glPushMatrix();
 	Black.call();

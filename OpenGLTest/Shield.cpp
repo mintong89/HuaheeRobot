@@ -1,8 +1,10 @@
 #include "Shape.h"
 #include "ColorIntensity.h"
+#include "GLTexture.h"
 
 void Shield() {
 	ColorIntensity Black(0, 0, 0);
+	ColorIntensity White(255, 255, 255);
 	ColorIntensity Gold(255, 161, 10);
 	ColorIntensity DarkGreen(16, 176, 63);
 	ColorIntensity NewGreen(2, 225, 112);
@@ -19,6 +21,7 @@ void Shield() {
 
 	glLineWidth(4);
 
+	GLTexture ShieldGrey("grey.bmp");
 	glPushMatrix();
 	glTranslatef(0, -4, 1.2);
 	GLdouble BSHC[] = { -1.2,1.2,3.2,4.2,1.3,1 };
@@ -28,6 +31,7 @@ void Shield() {
 	Cuboid(BSHC[0], BSHC[1], BSHC[2], BSHC[3], BSHC[4], BSHC[5], GL_LINE_LOOP);
 	glPopMatrix();
 
+	ShieldGrey.start();
 	glPushMatrix();
 	glTranslatef(0, -4, 1.3);
 	GLdouble LSHC[] = { -1,1,3.5,4,1.5,1 };
@@ -36,6 +40,7 @@ void Shield() {
 	Black.call();
 	Cuboid(LSHC[0], LSHC[1], LSHC[2], LSHC[3], LSHC[4], LSHC[5], GL_LINE_LOOP);
 	glPopMatrix();
+	ShieldGrey.end();
 
 	glPushMatrix();
 	NeoGrey.call();
@@ -473,12 +478,15 @@ void Shield() {
 	glEnd();
 	glPopMatrix();
 
+	GLTexture GreenShield("greenmetal.bmp");
+	GreenShield.start();
 	glPushMatrix();
 	glTranslatef(0, 2.7, 1.7);
 	GLdouble DHC[] = { -3,3,-2,-4,0,-0.4 };
-	NeoDarkGreen.call();
+	White.call();
 	Cuboid(DHC[0], DHC[1], DHC[2], DHC[3], DHC[4], DHC[5]);
 	UpShieldGreen.call();
 	Cuboid(DHC[0], DHC[1], DHC[2], DHC[3], DHC[4], DHC[5], GL_LINE_LOOP);
 	glPopMatrix();
+	GreenShield.end();
 }
